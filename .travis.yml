@@ -1,1 +1,26 @@
 language: bash
+
+services:
+  - docker
+
+env:
+  global:
+    - SAVE_DIR=$HOME/docker-images
+    - TAG="${TRAVIS_COMMIT}"
+
+jobs:
+  include:
+    - stage: Build
+      script:
+        - docker info
+        - make build
+        - make save
+    - stage: Release
+      if: type != pull_request AND tag IS present
+      script:
+        - TAG="${TRAVIS_TAG}" make load
+        - TAG="${TRAVIS_TAG}" make release
+
+cache:
+  directories:
+    - "${SAVE_DIR}"

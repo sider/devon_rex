@@ -1,4 +1,4 @@
-FROM quay.io/actcat/devon_rex_base:1.3.3
+FROM sider/devon_rex_base:dev
 
 ENV DEBIAN_FRONTEND=noninteractive
 ARG SWIFT_VERSION=4.2.3

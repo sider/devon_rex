@@ -1,4 +1,4 @@
-FROM quay.io/actcat/devon_rex_base:1.3.3
+FROM sider/devon_rex_base:dev
 
 ENV GO_VERSION 1.8
 ENV GO_DOWNLOAD_SHA256 53ab94104ee3923e228a2cb2116e5e462ad3ebaeea06ff04463479d7f12d27ca

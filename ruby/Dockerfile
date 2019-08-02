@@ -1,1 +1,1 @@
-FROM quay.io/actcat/devon_rex_base:1.3.3
+FROM sider/devon_rex_base:dev

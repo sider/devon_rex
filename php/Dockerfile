@@ -1,4 +1,4 @@
-FROM quay.io/actcat/devon_rex_base:1.3.3
+FROM sider/devon_rex_base:dev
 
 ARG PHP_VERSION="7.3.6"
 # NOTE: To ignore .php-version in every project, we must set `RBENV_VERSION`.
