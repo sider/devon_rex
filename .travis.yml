@@ -13,7 +13,7 @@ jobs:
     - stage: Build
       script:
         - docker info
-        - travis_wait make build
+        - travis_wait 30 make build
         - make save
     - stage: Release
       if: type != pull_request AND tag IS present
