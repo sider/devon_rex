@@ -108,8 +108,9 @@ ARG PYENV_BIN="$RUNNER_USER_HOME/.pyenv/bin"
 ENV PATH $PYENV_SHIMS_BIN:$PYENV_BIN:$PATH
 
 # Install python 2 and 3
-RUN pyenv install 2.7.16 \
-  && pyenv install 3.7.4 \
-  && pyenv rehash        \
-  && pyenv global 3.7.4
+RUN pyenv install 2.7.16 & \
+    pyenv install 3.7.4 & \
+    wait && \
+    pyenv rehash && \
+    pyenv global 3.7.4
 CMD pyenv versions
