@@ -1,4 +1,4 @@
-FROM swift:4.2.4
+FROM swift:5.0.3
 
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('swift/Dockerfile.prepare.erb')).result %>

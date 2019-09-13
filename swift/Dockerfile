@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.erb INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM swift:4.2.4
+FROM swift:5.0.3
 
 ENV GLOBAL_RUBY_VERSION 2.6.4
 ENV BUNDLER1_VERSION 1.17.3
