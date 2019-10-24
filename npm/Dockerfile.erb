@@ -1,4 +1,4 @@
-FROM node:12.13.0-buster
+FROM node:13.0.1-buster
 
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
