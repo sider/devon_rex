@@ -25,9 +25,12 @@ jobs:
           - swift
     steps:
       - uses: actions/checkout@v1
+      # HACK: See https://github.com/actions/setup-ruby/issues/31#issuecomment-561144368
+      - run: echo "::set-output name=RUBY_VERSION::$(cat .ruby-version)"
+        id: ruby-version
       - uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.6.x
+          ruby-version: "${{ steps.ruby-version.outputs.RUBY_VERSION }}"
       - name: Setup gems
         run: |
           gem install bundler --no-document
