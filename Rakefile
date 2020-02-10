@@ -5,6 +5,7 @@ ENV['GLOBAL_RUBY_VERSION'] = Pathname('.ruby-version').read.chomp!
 
 BUILD_CONTEXTS = %w[
   base
+  dotnet
   go
   haskell
   java

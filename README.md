@@ -8,6 +8,7 @@ Docker images for [Sider Runners](https://github.com/sider/runners).
 This repository's release tags indicate the Docker image tag, and all Docker images have the same tag.
 
 * [devon_rex_base](https://hub.docker.com/r/sider/devon_rex_base)
+* [devon_rex_dotnet](https://hub.docker.com/r/sider/devon_rex_dotnet)
 * [devon_rex_go](https://hub.docker.com/r/sider/devon_rex_go)
 * [devon_rex_haskell](https://hub.docker.com/r/sider/devon_rex_haskell)
 * [devon_rex_java](https://hub.docker.com/r/sider/devon_rex_java)
