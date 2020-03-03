@@ -5,8 +5,10 @@ FROM node:12.16.1-buster
 
 RUN /tmp/devon_rex_work/build-ruby
 
-ENV DEVON_REX_NPM_VERSION <%= ENV.fetch('DEVON_REX_NPM_VERSION') %>
-RUN npm install --global "npm@${DEVON_REX_NPM_VERSION}"
+COPY npm/package.json /tmp/
+RUN export npm_version=$(node -pe 'require("/tmp/package.json").dependencies.npm') && \
+    npm install --global "npm@${npm_version}" && \
+    rm /tmp/package.json
 
 <%= ERB.new(File.read('base/Dockerfile.cleanup.erb')).result %>
 

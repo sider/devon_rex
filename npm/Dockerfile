@@ -21,8 +21,10 @@ RUN /tmp/devon_rex_work/prepare
 
 RUN /tmp/devon_rex_work/build-ruby
 
-ENV DEVON_REX_NPM_VERSION 6.13.7
-RUN npm install --global "npm@${DEVON_REX_NPM_VERSION}"
+COPY npm/package.json /tmp/
+RUN export npm_version=$(node -pe 'require("/tmp/package.json").dependencies.npm') && \
+    npm install --global "npm@${npm_version}" && \
+    rm /tmp/package.json
 
 USER root
 RUN rm -rf /tmp/devon_rex_work
