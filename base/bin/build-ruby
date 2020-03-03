@@ -19,7 +19,7 @@ rbenv -v
 # Install ruby-build
 RBENV_ROOT=$(rbenv root)
 mkdir -p "${RBENV_ROOT}/plugins"
-git clone --branch "$DEVON_REX_RUBY_BUILD_VERSION" --single-branch \
+git clone --branch "v${DEVON_REX_RUBY_BUILD_VERSION}" --single-branch \
     https://github.com/rbenv/ruby-build.git "${RBENV_ROOT}/plugins/ruby-build"
 cd "${RBENV_ROOT}/plugins/ruby-build"
 

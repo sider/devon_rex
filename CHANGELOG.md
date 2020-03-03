@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.15.0...HEAD)
 
+- Bump ruby-build from 20200115 to 20200224 [#151](https://github.com/sider/devon_rex/pull/151)
+
 ## 2.15.0
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.14.0...2.15.0)
