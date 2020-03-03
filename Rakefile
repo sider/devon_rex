@@ -39,7 +39,7 @@ namespace :dockerfile do
   desc 'Verify Dockerfile is committed'
   task :verify do
     begin
-      sh 'git diff --exit-code'
+      sh 'git', 'diff', '--exit-code'
     rescue
       abort 'Run `bundle exec rake dockerfile:generate` and include the changes in commit'
     end
@@ -49,22 +49,28 @@ end
 namespace :docker do
   desc 'Run docker build'
   task :build => 'dockerfile:generate' do
-    sh "docker build -t #{image_name} -f #{build_context}/Dockerfile ."
+    sh 'docker', 'build', '-t', image_name, '-f', "#{build_context}/Dockerfile", '.'
   end
 
   desc 'Run docker run without command. This task expects each image to show versions'
   task :run do
-    sh "docker run --rm #{image_name}"
+    sh 'docker', 'run', '--rm', image_name
   end
 
   desc 'Run docker push'
   task :push do
-    sh "docker login -u #{docker_user} -p #{docker_password}"
-    sh "docker push #{image_name}"
+    sh 'docker', 'login', '-u', docker_user, '-p', docker_password
+    sh 'docker', 'push', image_name
     if tag_latest?
-      sh "docker tag #{image_name} #{image_name_latest}"
-      sh "docker push #{image_name_latest}"
+      sh 'docker', 'tag', image_name, image_name_latest
+      sh 'docker', 'push', image_name_latest
     end
+  end
+
+  desc 'Run interactive shell in the specified Docker container'
+  task :shell, [:extra_args] do |_task, args|
+    run_args = (args[:extra_args] || '').split(/\s+/)
+    sh 'docker', 'run', '-it', '--rm', *run_args, image_name, 'bash'
   end
 end
 
