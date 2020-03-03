@@ -1,8 +1,10 @@
-FROM debian:buster-20200224
+FROM ruby:2.7.0-buster
 
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
-<%= ERB.new(File.read('base/Dockerfile.build-ruby.erb')).result %>
+
+RUN /tmp/devon_rex_work/install-bundler
+
 <%= ERB.new(File.read('base/Dockerfile.cleanup.erb')).result %>
 
 CMD ruby -v && gem -v && bundle -v

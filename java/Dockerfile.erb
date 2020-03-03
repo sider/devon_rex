@@ -3,6 +3,8 @@ FROM debian:buster-20200224
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
 
+RUN /tmp/devon_rex_work/build-ruby
+
 # Install Java
 ENV JAVA_VERSION <%= ENV.fetch('JAVA_VERSION') %>
 ENV PATH /usr/local/java/bin:${PATH}
@@ -29,7 +31,6 @@ RUN curl -fsSLO --compressed "${MAVEN_BINARY_URL}" && \
     tar -xzf "${MAVEN_BINARY_FILE}" -C /usr/local/maven --strip-components 1 && \
     rm "${MAVEN_BINARY_FILE}"
 
-<%= ERB.new(File.read('base/Dockerfile.build-ruby.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.cleanup.erb')).result %>
 
 CMD java -version && javac -version && mvn -v

@@ -8,7 +8,9 @@ FROM haskell:8.6.5
 
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
-<%= ERB.new(File.read('base/Dockerfile.build-ruby.erb')).result %>
+
+RUN /tmp/devon_rex_work/build-ruby
+
 <%= ERB.new(File.read('base/Dockerfile.cleanup.erb')).result %>
 
 CMD ghci --version && cabal --version

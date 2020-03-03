@@ -3,11 +3,12 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
 
+RUN /tmp/devon_rex_work/build-ruby
+
 # Disabling .NET Core SDK telemetry
 # https://docs.microsoft.com/en-us/dotnet/core/tools/telemetry
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 
-<%= ERB.new(File.read('base/Dockerfile.build-ruby.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.cleanup.erb')).result %>
 
 CMD ["dotnet", "--version"]

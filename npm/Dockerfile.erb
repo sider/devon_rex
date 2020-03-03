@@ -3,10 +3,11 @@ FROM node:12.16.1-buster
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
 
+RUN /tmp/devon_rex_work/build-ruby
+
 ENV DEVON_REX_NPM_VERSION <%= ENV.fetch('DEVON_REX_NPM_VERSION') %>
 RUN npm install --global "npm@${DEVON_REX_NPM_VERSION}"
 
-<%= ERB.new(File.read('base/Dockerfile.build-ruby.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.cleanup.erb')).result %>
 
 CMD node -v && npm -v && yarn -v

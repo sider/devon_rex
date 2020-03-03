@@ -3,6 +3,8 @@ FROM php:7.4.3-buster
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
 
+RUN /tmp/devon_rex_work/build-ruby
+
 # PHP configuration
 RUN mv $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
 COPY php/sider.ini $PHP_INI_DIR/conf.d/sider.ini
@@ -17,7 +19,6 @@ ENV PATH $COMPOSER_VENDOR_BIN:$PATH
 USER $RUNNER_USER
 RUN mkdir -p $COMPOSER_VENDOR_BIN
 
-<%= ERB.new(File.read('base/Dockerfile.build-ruby.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.cleanup.erb')).result %>
 
 CMD php -v && composer --version

@@ -1,43 +1,29 @@
 #!/bin/bash
 set -euo pipefail
 
-[[ $(whoami) = "$RUNNER_USER" ]] || (echo 'Unexpected running user!' ; exit 1)
-
-# Install rbenv
-git clone --branch "$DEVON_REX_RBENV_VERSION" --single-branch \
-    https://github.com/rbenv/rbenv.git ~/.rbenv
-cd ~/.rbenv
-src/configure
-make -j "$(nproc)" -C src
-cat <<'EOF' >> ~/.bash_profile
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-EOF
-. ~/.bash_profile
-rbenv -v
+export PREFIX=/usr/local
 
 # Install ruby-build
-RBENV_ROOT=$(rbenv root)
-mkdir -p "${RBENV_ROOT}/plugins"
 git clone --branch "v${DEVON_REX_RUBY_BUILD_VERSION}" --single-branch \
-    https://github.com/rbenv/ruby-build.git "${RBENV_ROOT}/plugins/ruby-build"
-cd "${RBENV_ROOT}/plugins/ruby-build"
+    https://github.com/rbenv/ruby-build.git \
+    /tmp/ruby-build
+/tmp/ruby-build/install.sh
+cd ~
+rm -rf /tmp/ruby-build
+[[ $(ruby-build --version) = "ruby-build ${DEVON_REX_RUBY_BUILD_VERSION}" ]] || (echo 'Unexpected ruby-build version!' ; exit 1)
+ruby-build --version
 
 # Install Ruby
-rbenv install "$GLOBAL_RUBY_VERSION"
-rbenv global "$GLOBAL_RUBY_VERSION"
-rbenv versions
+ruby-build "$GLOBAL_RUBY_VERSION" "$PREFIX"
 [[ $(ruby -e 'puts RUBY_VERSION') = "$GLOBAL_RUBY_VERSION" ]] || (echo 'Unexpected Ruby version!' ; exit 1)
-cat<<'EOF' >> ~/.gemrc
+ruby -v
+
+# Configure `gem` command
+cat<<'EOF' >> "${PREFIX}/etc/gemrc"
 install: --no-document
 update: --no-document
 EOF
-ruby -v
 
-# NOTE: Install bundler v1 as well as v2 because runner applications need them
-#       in order to parse both versions of Gemfile.lock.
-#       See https://bundler.io/blog/2019/01/03/announcing-bundler-2.html
-gem install bundler:"$BUNDLER1_VERSION"
-gem install bundler:"$BUNDLER2_VERSION"
-[[ $(bundle -v) = "Bundler version ${BUNDLER2_VERSION}" ]] || (echo 'Unexpected Bundler version!' ; exit 1)
-bundle -v
+# See https://stackoverflow.com/a/4774063
+SCRIPT_PATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+"${SCRIPT_PATH}/install-bundler"
