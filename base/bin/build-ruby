@@ -18,12 +18,6 @@ ruby-build "$GLOBAL_RUBY_VERSION" "$PREFIX"
 [[ $(ruby -e 'puts RUBY_VERSION') = "$GLOBAL_RUBY_VERSION" ]] || (echo 'Unexpected Ruby version!' ; exit 1)
 ruby -v
 
-# Configure `gem` command
-cat<<'EOF' >> "${PREFIX}/etc/gemrc"
-install: --no-document
-update: --no-document
-EOF
-
 # Update `gem` command
 gem update --system
 gem environment

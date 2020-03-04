@@ -24,6 +24,8 @@ ENV DEBIAN_FRONTEND noninteractive
 COPY base/bin/* /tmp/devon_rex_work/
 RUN /tmp/devon_rex_work/prepare
 
+COPY base/etc/* /usr/local/etc/
+
 
 RUN /tmp/devon_rex_work/build-ruby
 
