@@ -27,6 +27,6 @@ gem environment
 #       See https://bunndler.io/blog/2019/01/03/announcing-bundler-2.html
 gem install bundler:"${BUNDLER1_VERSION}"
 gem install bundler:"${BUNDLER2_VERSION}"
-gem list bundler
+gem info bundler
 [[ $(bundle -v) = "Bundler version ${BUNDLER2_VERSION}" ]] || (echo 'Unexpected Bundler version!' ; exit 1)
 bundle -v
