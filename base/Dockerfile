@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.erb INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM ruby:2.7.0-buster
+FROM debian:buster-20200224
 
 ENV GLOBAL_RUBY_VERSION 2.7.0
 ENV BUNDLER1_VERSION 1.17.3
@@ -19,7 +19,7 @@ COPY base/bin/* /tmp/devon_rex_work/
 RUN /tmp/devon_rex_work/prepare
 
 
-RUN /tmp/devon_rex_work/install-bundler
+RUN /tmp/devon_rex_work/build-ruby
 
 USER root
 RUN rm -rf /tmp/devon_rex_work

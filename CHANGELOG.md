@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 [Full diff](https://github.com/sider/devon_rex/compare/2.15.0...HEAD)
 
 - Bump ruby-build from 20200115 to 20200224 [#151](https://github.com/sider/devon_rex/pull/151)
-- Bump Ruby from 2.6.5 to 2.7.0 and use official Ruby Docker image [#152](https://github.com/sider/devon_rex/pull/152)
+- Bump Ruby from 2.6.5 to 2.7.0 [#152](https://github.com/sider/devon_rex/pull/152)
 
 ## 2.15.0
 
