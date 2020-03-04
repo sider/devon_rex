@@ -22,7 +22,7 @@ RUN /tmp/devon_rex_work/prepare
 RUN /tmp/devon_rex_work/build-ruby
 
 COPY npm/package.json /tmp/
-RUN export npm_version=$(node -pe 'require("/tmp/package.json").dependencies.npm') && \
+RUN npm_version=$(node -pe 'require("/tmp/package.json").dependencies.npm') && \
     npm install --global "npm@${npm_version}" && \
     rm /tmp/package.json
 
