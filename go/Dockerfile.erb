@@ -3,8 +3,6 @@ FROM golang:1.14.0-buster
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
 
-RUN /tmp/devon_rex_work/build-ruby
-
 # Install Glide
 # See https://github.com/Masterminds/glide
 RUN curl https://glide.sh/get | sh

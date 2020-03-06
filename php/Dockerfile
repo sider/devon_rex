@@ -26,7 +26,7 @@ RUN RUBY_BUILD_VERSION="20200224" /tmp/devon_rex_work/build-ruby
 COPY --chown=analyzer_runner:nogroup base/etc/gemrc ${RUBY_HOME}/etc/
 
 
-RUN /tmp/devon_rex_work/build-ruby
+USER root
 
 # PHP configuration
 RUN mv $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini

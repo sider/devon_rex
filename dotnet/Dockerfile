@@ -26,8 +26,6 @@ RUN RUBY_BUILD_VERSION="20200224" /tmp/devon_rex_work/build-ruby
 COPY --chown=analyzer_runner:nogroup base/etc/gemrc ${RUBY_HOME}/etc/
 
 
-RUN /tmp/devon_rex_work/build-ruby
-
 # Disabling .NET Core SDK telemetry
 # https://docs.microsoft.com/en-us/dotnet/core/tools/telemetry
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1

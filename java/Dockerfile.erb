@@ -3,7 +3,7 @@ FROM debian:buster-20200224
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
 
-RUN /tmp/devon_rex_work/build-ruby
+USER root
 
 # Install Java
 ENV JAVA_VERSION <%= ENV.fetch('JAVA_VERSION') %>

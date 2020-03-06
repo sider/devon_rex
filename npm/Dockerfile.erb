@@ -3,8 +3,6 @@ FROM node:12.16.1-buster
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
 
-RUN /tmp/devon_rex_work/build-ruby
-
 COPY npm/package.json /tmp/
 RUN npm_version=$(node -pe 'require("/tmp/package.json").dependencies.npm') && \
     npm install --global "npm@${npm_version}" && \

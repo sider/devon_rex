@@ -26,8 +26,6 @@ RUN RUBY_BUILD_VERSION="20200224" /tmp/devon_rex_work/build-ruby
 COPY --chown=analyzer_runner:nogroup base/etc/gemrc ${RUBY_HOME}/etc/
 
 
-RUN /tmp/devon_rex_work/build-ruby
-
 # Install Glide
 # See https://github.com/Masterminds/glide
 RUN curl https://glide.sh/get | sh

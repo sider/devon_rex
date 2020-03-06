@@ -26,8 +26,6 @@ RUN RUBY_BUILD_VERSION="20200224" /tmp/devon_rex_work/build-ruby
 COPY --chown=analyzer_runner:nogroup base/etc/gemrc ${RUBY_HOME}/etc/
 
 
-RUN /tmp/devon_rex_work/build-ruby
-
 # Install pyenv
 USER $RUNNER_USER
 RUN curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash

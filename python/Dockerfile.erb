@@ -3,8 +3,6 @@ FROM debian:buster-20200224
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
 
-RUN /tmp/devon_rex_work/build-ruby
-
 # Install pyenv
 USER $RUNNER_USER
 RUN curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
