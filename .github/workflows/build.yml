@@ -49,6 +49,7 @@ jobs:
           echo "tag: ${{ steps.define_vars.outputs.tag }}"
       - name: Build and test the Docker image
         run: |
+          bundle exec rake dockerfile:generate dockerfile:verify
           bundle exec rake docker:build docker:run
         env:
           BUILD_CONTEXT: ${{ matrix.build-context }}
