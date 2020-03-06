@@ -39,12 +39,10 @@ jobs:
       - name: Define variables
         id: define_vars
         run: |
-          if [[ "${GITHUB_REF}" == 'refs/heads/master' ]]; then
-            tag="master"
-          else
-            tag="$(echo ${GITHUB_REF} | sed 's!refs/tags/!!' | sed 's!/!_!g')"
-          fi
-          echo "::set-output name=tag::${tag}"
+          echo "::set-output name=tag::${GITHUB_REF#refs/*/}"
+      - name: Print variables
+        run: |
+          echo "tag: ${{ steps.define_vars.outputs.tag }}"
       - name: Build and test the Docker image
         run: |
           bundle exec rake docker:build docker:run
@@ -53,14 +51,13 @@ jobs:
           TAG: ${{ steps.define_vars.outputs.tag }}
       - name: Publish the Docker image
         # if: |
-        #   github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/')
+        #   steps.define_vars.outputs.tag == 'master' || startsWith(github.ref, 'refs/tags/')
         run: |
-          echo "TAG: $TAG"
           echo "TAG_LATEST: $TAG_LATEST"
           echo bundle exec rake docker:push
         env:
           BUILD_CONTEXT: ${{ matrix.build-context }}
           TAG: ${{ steps.define_vars.outputs.tag }}
-          TAG_LATEST: ${{ steps.define_vars.outputs.tag != 'master' }}
+          TAG_LATEST: ${{ startsWith(github.ref, 'refs/tags/') }}
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
