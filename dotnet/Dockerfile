@@ -7,18 +7,23 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster
 ENV GLOBAL_RUBY_VERSION 2.7.0
 ENV BUNDLER1_VERSION 1.17.3
 ENV BUNDLER2_VERSION 2.1.4
-ENV DEVON_REX_RUBY_BUILD_VERSION 20200224
 ENV LANG en_US.UTF-8
 ENV LANGUAGE $LANG
 ENV LC_ALL $LANG
 ENV RUNNER_USER analyzer_runner
-ENV RUNNER_USER_HOME /home/$RUNNER_USER
+ENV RUNNER_USER_HOME /home/${RUNNER_USER}
+ENV RUNNER_RUBY_HOME ${RUNNER_USER_HOME}/ruby
+ENV PATH ${RUNNER_RUBY_HOME}/bin:${PATH}
 ENV DEBIAN_FRONTEND noninteractive
 
-COPY base/bin/* /tmp/devon_rex_work/
+COPY base/bin/prepare /tmp/devon_rex_work/
 RUN /tmp/devon_rex_work/prepare
 
-COPY base/etc/* /usr/local/etc/
+USER $RUNNER_USER
+
+COPY base/bin/build-ruby /tmp/devon_rex_work/
+RUN RUBY_BUILD_VERSION="20200224" /tmp/devon_rex_work/build-ruby
+COPY --chown=analyzer_runner:nogroup base/etc/gemrc ${RUBY_HOME}/etc/
 
 
 RUN /tmp/devon_rex_work/build-ruby

@@ -1,21 +1,26 @@
 #!/bin/bash
 set -euo pipefail
 
-export PREFIX=/usr/local
-
 # Install ruby-build
-git clone --branch "v${DEVON_REX_RUBY_BUILD_VERSION}" --single-branch \
+git clone --branch "v${RUBY_BUILD_VERSION}" --single-branch \
     https://github.com/rbenv/ruby-build.git \
     /tmp/ruby-build
-/tmp/ruby-build/install.sh
-cd ~
-rm -rf /tmp/ruby-build
-[[ $(ruby-build --version) = "ruby-build ${DEVON_REX_RUBY_BUILD_VERSION}" ]] || (echo 'Unexpected ruby-build version!' ; exit 1)
+PREFIX=/tmp/ruby-build-dest /tmp/ruby-build/install.sh
+PATH="/tmp/ruby-build-dest/bin:${PATH}"
+
+# Verify ruby-build installation
+[[ $(ruby-build --version) == "ruby-build ${RUBY_BUILD_VERSION}" ]] || (echo 'Unexpected ruby-build version!' ; exit 1)
 ruby-build --version
 
 # Install Ruby
-ruby-build "$GLOBAL_RUBY_VERSION" "$PREFIX"
-[[ $(ruby -e 'puts RUBY_VERSION') = "$GLOBAL_RUBY_VERSION" ]] || (echo 'Unexpected Ruby version!' ; exit 1)
+ruby-build "$GLOBAL_RUBY_VERSION" "$RUNNER_RUBY_HOME"
+
+# Clean up ruby-build
+rm -rf /tmp/ruby-build
+rm -rf /tmp/ruby-build-dest
+
+# Verify Ruby installation
+[[ $(ruby -e 'puts RUBY_VERSION') == "$GLOBAL_RUBY_VERSION" ]] || (echo 'Unexpected Ruby version!' ; exit 1)
 ruby -v
 
 # Update `gem` command
@@ -28,5 +33,7 @@ gem environment
 gem install bundler:"${BUNDLER1_VERSION}"
 gem install bundler:"${BUNDLER2_VERSION}"
 gem info bundler
-[[ $(bundle -v) = "Bundler version ${BUNDLER2_VERSION}" ]] || (echo 'Unexpected Bundler version!' ; exit 1)
+
+# Verify Bundler installation
+[[ $(bundle -v) == "Bundler version ${BUNDLER2_VERSION}" ]] || (echo 'Unexpected Bundler version!' ; exit 1)
 bundle -v
