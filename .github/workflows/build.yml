@@ -38,6 +38,7 @@ jobs:
         run: docker info
       - name: Define variables
         id: define_vars
+        # See https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
         run: |
           echo "GITHUB_REF: ${GITHUB_REF}"
           tag="${GITHUB_REF#refs/*/}"
@@ -53,11 +54,10 @@ jobs:
           BUILD_CONTEXT: ${{ matrix.build-context }}
           TAG: ${{ steps.define_vars.outputs.tag }}
       - name: Publish the Docker image
-        # if: |
-        #   steps.define_vars.outputs.tag == 'master' || startsWith(github.ref, 'refs/tags/')
+        if: |
+          steps.define_vars.outputs.tag == 'master' || startsWith(github.ref, 'refs/tags/')
         run: |
-          echo "TAG_LATEST: $TAG_LATEST"
-          echo bundle exec rake docker:push
+          bundle exec rake docker:push
         env:
           BUILD_CONTEXT: ${{ matrix.build-context }}
           TAG: ${{ steps.define_vars.outputs.tag }}
