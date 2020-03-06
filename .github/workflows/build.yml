@@ -25,40 +25,42 @@ jobs:
           - ruby
           - swift
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-ruby@v1
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6.x
+          ruby-version: .ruby-version
       - name: Setup gems
         run: |
           gem install bundler --no-document
-          bundle install --jobs=4 --retry=3 --path=vendor/bundle
+          bundle config set --local path vendor/bundle
+          bundle install --jobs=4 --retry=3
+      - name: Show Docker information
+        run: docker info
+      - name: Define variables
+        id: define_vars
+        run: |
+          if [[ "${GITHUB_REF}" == 'refs/heads/master' ]]; then
+            tag="master"
+          else
+            tag="$(echo ${GITHUB_REF} | sed 's!refs/tags/!!' | sed 's!/!_!g')"
+          fi
+          echo "::set-output name=tag::${tag}"
       - name: Build and test the Docker image
         run: |
-          if [[ "$GITHUB_REF" = 'refs/heads/master' ]]; then
-            export TAG=master
-          else
-            export TAG="$(echo ${GITHUB_REF} | sed 's!refs/tags/!!' | sed 's!/!_!g')"
-          fi
-          docker info
-          bundle exec rake dockerfile:generate
-          bundle exec rake dockerfile:verify
-          bundle exec rake docker:build
-          bundle exec rake docker:run
+          bundle exec rake docker:build docker:run
         env:
           BUILD_CONTEXT: ${{ matrix.build-context }}
+          TAG: ${{ steps.define_vars.outputs.tag }}
       - name: Publish the Docker image
-        if: |
-          github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/')
+        # if: |
+        #   github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/')
         run: |
-          if [[ "$GITHUB_REF" = 'refs/heads/master' ]]; then
-            export TAG=master
-          else
-            export TAG="$(echo ${GITHUB_REF} | sed 's!refs/tags/!!' | sed 's!/!_!g')"
-            export TAG_LATEST=true
-          fi
-          bundle exec rake docker:push
+          echo "TAG: $TAG"
+          echo "TAG_LATEST: $TAG_LATEST"
+          echo bundle exec rake docker:push
         env:
           BUILD_CONTEXT: ${{ matrix.build-context }}
+          TAG: ${{ steps.define_vars.outputs.tag }}
+          TAG_LATEST: ${{ steps.define_vars.outputs.tag != 'master' }}
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
