@@ -24,7 +24,8 @@ USER $RUNNER_USER
 
 COPY base/bin/build-ruby /tmp/devon_rex_work/
 RUN RUBY_BUILD_VERSION="20200224" /tmp/devon_rex_work/build-ruby
-COPY --chown=${RUNNER_USER}:${RUNNER_GROUP} base/etc/gemrc ${RUBY_HOME}/etc/
+COPY --chown=${RUNNER_USER}:${RUNNER_GROUP} base/etc/gemrc ${RUNNER_RUBY_HOME}/etc/
+RUN gem environment
 
 USER root
 RUN rm -rf /tmp/devon_rex_work
