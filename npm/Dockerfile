@@ -11,6 +11,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE $LANG
 ENV LC_ALL $LANG
 ENV RUNNER_USER analyzer_runner
+ENV RUNNER_GROUP nogroup
 ENV RUNNER_USER_HOME /home/${RUNNER_USER}
 ENV RUNNER_RUBY_HOME ${RUNNER_USER_HOME}/ruby
 ENV PATH ${RUNNER_RUBY_HOME}/bin:${PATH}
@@ -23,7 +24,7 @@ USER $RUNNER_USER
 
 COPY base/bin/build-ruby /tmp/devon_rex_work/
 RUN RUBY_BUILD_VERSION="20200224" /tmp/devon_rex_work/build-ruby
-COPY --chown=analyzer_runner:nogroup base/etc/gemrc ${RUBY_HOME}/etc/
+COPY --chown=${RUNNER_USER}:${RUNNER_GROUP} base/etc/gemrc ${RUBY_HOME}/etc/
 
 
 USER root

@@ -5,4 +5,4 @@ USER $RUNNER_USER
 
 COPY base/bin/build-ruby /tmp/devon_rex_work/
 RUN RUBY_BUILD_VERSION="<%= ENV.fetch('RUBY_BUILD_VERSION') %>" /tmp/devon_rex_work/build-ruby
-COPY --chown=<%= ENV.fetch('DEVON_REX_RUNNER_USER') %>:nogroup base/etc/gemrc ${RUBY_HOME}/etc/
+COPY --chown=${RUNNER_USER}:${RUNNER_GROUP} base/etc/gemrc ${RUBY_HOME}/etc/

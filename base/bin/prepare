@@ -62,6 +62,11 @@ apt-get -qyy clean
 # Create a user
 adduser --system --shell /bin/bash --home "$RUNNER_USER_HOME" "$RUNNER_USER"
 
+# Verify the user and group
+id -u "$RUNNER_USER"
+user_and_group=$(groups "$RUNNER_USER")
+[[ "${user_and_group}" == "${RUNNER_USER} : ${RUNNER_GROUP}" ]] || (echo "${user_and_group}" ; exit 1)
+
 # Configure Bash on shell
 cat << 'EOF' >> "${RUNNER_USER_HOME}/.bashrc"
 alias ls='ls --color=auto'
@@ -70,4 +75,4 @@ alias l='ls -lAF'
 alias grep='grep --color=auto'
 alias less='less -ciRM'
 EOF
-chown "${RUNNER_USER}:" "${RUNNER_USER_HOME}/.bashrc"
+chown "${RUNNER_USER}:${RUNNER_GROUP}" "${RUNNER_USER_HOME}/.bashrc"

@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - Bump ruby-build from 20200115 to 20200224 [#151](https://github.com/sider/devon_rex/pull/151)
 - Bump Ruby from 2.6.5 to 2.7.0 [#152](https://github.com/sider/devon_rex/pull/152)
 - Bump npm from 6.13.7 to 6.14.2 [#153](https://github.com/sider/devon_rex/pull/153)
+- Add `RUNNER_GROUP` environment variable [#163](https://github.com/sider/devon_rex/pull/163)
 
 ## 2.15.0
 
