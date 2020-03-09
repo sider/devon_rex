@@ -63,9 +63,9 @@ apt-get -qyy clean
 adduser --system --shell /bin/bash --home "$RUNNER_USER_HOME" "$RUNNER_USER"
 
 # Verify the user and group
-id -u "$RUNNER_USER"
-user_and_group=$(groups "$RUNNER_USER")
-[[ "${user_and_group}" == "${RUNNER_USER} : ${RUNNER_GROUP}" ]] || (echo "${user_and_group}" ; exit 1)
+id --user "$RUNNER_USER"
+groups=$(id --groups --name "$RUNNER_USER")
+[[ "$groups" == "$RUNNER_GROUP" ]] || (echo "Unexpected groups: '${groups}'" ; exit 1)
 
 # Configure Bash on shell
 cat << 'EOF' >> "${RUNNER_USER_HOME}/.bashrc"
