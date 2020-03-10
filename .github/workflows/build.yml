@@ -10,7 +10,6 @@ on:
 jobs:
   check_skip:
     runs-on: ubuntu-latest
-    # some comment should be removed.
     # See also:
     # - https://help.github.com/en/actions/reference/events-that-trigger-workflows#push-event-push
     # - https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-event-pull_request
