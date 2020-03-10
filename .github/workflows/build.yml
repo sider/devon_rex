@@ -2,7 +2,8 @@ name: Build
 
 on:
   push:
-    branches: ["master"]
+    #branches: ["master"]
+    branches: ["**"] # for test, it should be removed.
     tags: ["**"]
   pull_request:
     branches: ["**"]
@@ -20,6 +21,7 @@ jobs:
     steps:
       - run: |
           echo "github.event_name: '${{ github.event_name }}'"
+          echo "github.event: '${{ toJson(github.event) }}'"
           echo "github.event.push.commit.message: '${{ github.event.push.commit.message }}'"
           echo "github.event.pull_request.title: '${{ github.event.pull_request.title }}'"
           echo "github.event.pull_request.body: '${{ github.event.pull_request.body }}'"
