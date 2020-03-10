@@ -2,8 +2,7 @@ name: Build
 
 on:
   push:
-    #branches: ["master"]
-    branches: ["**"] # for test, it should be removed.
+    branches: ["master"]
     tags: ["**"]
   pull_request:
     branches: ["**"]
