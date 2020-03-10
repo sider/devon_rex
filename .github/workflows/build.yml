@@ -16,13 +16,13 @@ jobs:
     # - https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions
     if: |
       !(github.event_name == 'push' && contains(github.event.commit.message, '[skip ci]')) &&
-      !(github.event_name == 'pull_request' && contains(join(github.event.title, github.event.body), '[skip ci]'))
+      !(github.event_name == 'pull_request' && contains(join(github.event.pull_request.title, github.event.pull_request.body), '[skip ci]'))
     steps:
       - run: |
           echo "github.event_name: '${{ github.event_name }}'"
           echo "github.event.commit.message: '${{ github.event.commit.message }}'"
-          echo "github.event.title: '${{ github.event.title }}'"
-          echo "github.event.body: '${{ github.event.body }}'"
+          echo "github.event.pull_request.title: '${{ github.event.pull_request.title }}'"
+          echo "github.event.pull_request.body: '${{ github.event.pull_request.body }}'"
 
   build:
     runs-on: ubuntu-latest
