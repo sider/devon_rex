@@ -4,7 +4,7 @@
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster
 
-ENV GLOBAL_RUBY_VERSION 2.7.0
+ENV GLOBAL_RUBY_VERSION 2.6.5
 ENV BUNDLER1_VERSION 1.17.3
 ENV BUNDLER2_VERSION 2.1.4
 ENV LANG en_US.UTF-8
