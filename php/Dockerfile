@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.erb INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM php:7.4.3-buster
+FROM php:7.4.4-buster
 
 ENV GLOBAL_RUBY_VERSION 2.6.5
 ENV BUNDLER1_VERSION 1.17.3
