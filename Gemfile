@@ -4,6 +4,6 @@ source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
-gem 'aufgaben', github: 'ybiquitous/aufgaben', tag: '0.4.1'
+gem 'aufgaben', github: 'ybiquitous/aufgaben', tag: '0.4.2'
 gem 'dotenv'
 gem 'rake'
