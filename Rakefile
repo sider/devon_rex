@@ -19,6 +19,9 @@ BUILD_CONTEXTS = %w[
 require 'aufgaben/release'
 Aufgaben::Release.new
 
+require 'aufgaben/bump/ruby'
+Aufgaben::Bump::Ruby.new
+
 namespace :dockerfile do
   desc 'Generate Dockerfile from a template'
   task :generate do

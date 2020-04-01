@@ -6,7 +6,7 @@
 #       See https://github.com/haskell/docker-haskell/issues/8
 FROM haskell:8.8.3
 
-ENV GLOBAL_RUBY_VERSION 2.6.5
+ENV GLOBAL_RUBY_VERSION 2.6.6
 ENV BUNDLER1_VERSION 1.17.3
 ENV BUNDLER2_VERSION 2.1.4
 ENV LANG en_US.UTF-8
@@ -25,7 +25,7 @@ RUN /tmp/devon_rex_work/prepare
 USER $RUNNER_USER
 
 COPY base/bin/build-ruby /tmp/devon_rex_work/
-RUN RUBY_BUILD_VERSION="20200224" /tmp/devon_rex_work/build-ruby
+RUN RUBY_BUILD_VERSION="20200401" /tmp/devon_rex_work/build-ruby
 COPY --chown=${RUNNER_USER}:${RUNNER_GROUP} base/etc/gemrc ${RUNNER_RUBY_HOME}/etc/
 RUN gem environment
 
