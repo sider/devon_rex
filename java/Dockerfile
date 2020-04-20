@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.erb INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM debian:buster-20200414
+FROM openjdk:14.0.1-buster
 
 ENV GLOBAL_RUBY_VERSION 2.6.6
 ENV BUNDLER1_VERSION 1.17.3
@@ -28,33 +28,21 @@ COPY --chown=${RUNNER_USER}:${RUNNER_GROUP} base/etc/gemrc ${RUNNER_RUBY_HOME}/e
 RUN gem environment
 
 
-USER root
-
-# Install Java
-ENV JAVA_VERSION 12.0.2
-ENV PATH /usr/local/java/bin:${PATH}
-ARG JAVA_BINARY_URL=https://download.java.net/java/GA/jdk${JAVA_VERSION}/e482c34c86bd4bf8b56c0b35558996b9/10/GPL/openjdk-${JAVA_VERSION}_linux-x64_bin.tar.gz
-ARG JAVA_BINARY_FILE=openjdk-${JAVA_VERSION}_linux-x64_bin.tar.gz
-RUN curl -fsSLO --compressed "${JAVA_BINARY_URL}" && \
-    curl -fsSL  --compressed "${JAVA_BINARY_URL}.sha256" | \
-      xargs -I {} echo "{} *${JAVA_BINARY_FILE}" | \
-      sha256sum --check --strict && \
-    mkdir -p /usr/local/java && \
-    tar -xzf "${JAVA_BINARY_FILE}" -C /usr/local/java --strip-components=1 && \
-    rm "${JAVA_BINARY_FILE}"
-
 # Install Maven
-ENV MAVEN_VERSION 3.6.3
-ENV PATH /usr/local/maven/bin:$PATH
+ARG MAVEN_VERSION=3.6.3
 ARG MAVEN_BINARY_URL=https://www.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
 ARG MAVEN_BINARY_FILE=apache-maven-${MAVEN_VERSION}-bin.tar.gz
-RUN curl -fsSLO --compressed "${MAVEN_BINARY_URL}" && \
+ARG MAVEN_HOME=${RUNNER_USER_HOME}/maven
+ENV PATH ${MAVEN_HOME}/bin:${PATH}
+RUN cd "${RUNNER_USER_HOME}" && \
+    curl -fsSLO --compressed "${MAVEN_BINARY_URL}" && \
     curl -fsSL  --compressed "${MAVEN_BINARY_URL}.sha512" | \
       xargs -I {} echo "{} *${MAVEN_BINARY_FILE}" | \
       sha512sum --check --strict && \
-    mkdir -p /usr/local/maven && \
-    tar -xzf "${MAVEN_BINARY_FILE}" -C /usr/local/maven --strip-components 1 && \
-    rm "${MAVEN_BINARY_FILE}"
+    mkdir -p "${MAVEN_HOME}" && \
+    tar -xzf "${MAVEN_BINARY_FILE}" -C "${MAVEN_HOME}" --strip-components 1 && \
+    rm "${MAVEN_BINARY_FILE}" && \
+    mvn -v
 
 USER root
 RUN rm -rf /tmp/devon_rex_work
@@ -63,4 +51,4 @@ RUN rm -rf /tmp/devon_rex_work
 USER $RUNNER_USER
 
 
-CMD java -version && javac -version && mvn -v
+CMD ["java", "-version"]
