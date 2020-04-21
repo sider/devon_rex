@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - Bump npm from 6.14.2 to 6.14.4 [#190](https://github.com/sider/devon_rex/pull/190)
 - Bump Python from 3.7.4 to 3.8.2 [#191](https://github.com/sider/devon_rex/pull/191)
 - Bump Java from 12.0.2 to 14.0.1 [#192](https://github.com/sider/devon_rex/pull/192)
+- Bump Ruby from 2.6.6 to 2.7.1 [#193](https://github.com/sider/devon_rex/pull/193)
 
 ## 2.16.1
 
