@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - Bump debian from buster-20200224 to buster-20200414 [#185](https://github.com/sider/devon_rex/pull/185) [#186](https://github.com/sider/devon_rex/pull/186) [#187](https://github.com/sider/devon_rex/pull/187)
 - Bump php from 7.4.4-buster to 7.4.5-buster [#188](https://github.com/sider/devon_rex/pull/188)
 - Bump npm from 6.14.2 to 6.14.4 [#190](https://github.com/sider/devon_rex/pull/190)
+- Bump Python from 3.7.4 to 3.8.2 [#191](https://github.com/sider/devon_rex/pull/191)
 - Bump Java from 12.0.2 to 14.0.1 [#192](https://github.com/sider/devon_rex/pull/192)
 
 ## 2.16.1
