@@ -76,3 +76,6 @@ alias grep='grep --color=auto'
 alias less='less -ciRM'
 EOF
 chown "${RUNNER_USER}:${RUNNER_GROUP}" "${RUNNER_USER_HOME}/.bashrc"
+
+# Create extra directories
+mkdir "${RUNNER_USER_HOME}/bin"

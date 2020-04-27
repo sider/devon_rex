@@ -16,7 +16,7 @@ ENV RUNNER_USER analyzer_runner
 ENV RUNNER_GROUP nogroup
 ENV RUNNER_USER_HOME /home/${RUNNER_USER}
 ENV RUNNER_RUBY_HOME ${RUNNER_USER_HOME}/ruby
-ENV PATH ${RUNNER_RUBY_HOME}/bin:${PATH}
+ENV PATH ${RUNNER_USER_HOME}/bin:${RUNNER_RUBY_HOME}/bin:${PATH}
 ENV DEBIAN_FRONTEND noninteractive
 
 COPY base/bin/prepare /tmp/devon_rex_work/
