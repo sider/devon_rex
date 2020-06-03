@@ -1,4 +1,4 @@
-FROM golang:1.14.3-buster
+FROM golang:1.14.4-buster
 
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
