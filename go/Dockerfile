@@ -27,11 +27,6 @@ RUN RUBY_BUILD_VERSION="20200518" /tmp/devon_rex_work/build-ruby
 COPY --chown=${RUNNER_USER}:${RUNNER_GROUP} base/etc/gemrc ${RUNNER_RUBY_HOME}/etc/
 RUN gem environment
 
-
-# Install Glide
-# See https://github.com/Masterminds/glide
-RUN curl https://glide.sh/get | sh
-
 USER root
 RUN rm -rf /tmp/devon_rex_work
 
@@ -39,4 +34,4 @@ RUN rm -rf /tmp/devon_rex_work
 USER $RUNNER_USER
 
 
-CMD go version
+CMD ["go", "version"]
