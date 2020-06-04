@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 [Full diff](https://github.com/sider/devon_rex/compare/2.19.0...HEAD)
 
 - Bump ruby-build from 20200401 to 20200518 [#214](https://github.com/sider/devon_rex/pull/214)
-- Bump node from 12.16.3-buster to 12.17.0-buster [#215](https://github.com/sider/devon_rex/pull/215)
+- Bump node from 12.16.3-buster to 12.18.0-buster [#215](https://github.com/sider/devon_rex/pull/215) [#217](https://github.com/sider/devon_rex/pull/217)
 - Bump golang from 1.14.3-buster to 1.14.4-buster [#216](https://github.com/sider/devon_rex/pull/216)
 - Remove Glide [#218](https://github.com/sider/devon_rex/pull/218)
 
