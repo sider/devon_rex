@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - Bump golang from 1.14.3-buster to 1.14.4-buster [#216](https://github.com/sider/devon_rex/pull/216)
 - Remove Glide [#218](https://github.com/sider/devon_rex/pull/218)
 - Bump swift from 5.2.3 to 5.2.4 [#219](https://github.com/sider/devon_rex/pull/219)
+- Bump debian from buster-20200514 to buster-20200607 [#220](https://github.com/sider/devon_rex/pull/220)
 
 ## 2.19.0
 
