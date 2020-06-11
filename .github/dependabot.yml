@@ -1,0 +1,90 @@
+version: 2
+updates:
+- package-ecosystem: docker
+  directory: "/dotnet"
+  schedule:
+    interval: daily
+    time: '09:00'
+    timezone: Japan
+  open-pull-requests-limit: 10
+- package-ecosystem: npm
+  directory: "/npm"
+  schedule:
+    interval: daily
+    time: '09:00'
+    timezone: Japan
+  open-pull-requests-limit: 10
+  versioning-strategy: increase
+- package-ecosystem: docker
+  directory: "/base"
+  schedule:
+    interval: daily
+    time: '09:00'
+    timezone: Japan
+  open-pull-requests-limit: 10
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: '09:00'
+    timezone: Japan
+  open-pull-requests-limit: 10
+  allow:
+  - dependency-type: direct
+  - dependency-type: indirect
+- package-ecosystem: docker
+  directory: "/swift"
+  schedule:
+    interval: daily
+    time: '09:00'
+    timezone: Japan
+  open-pull-requests-limit: 10
+- package-ecosystem: docker
+  directory: "/haskell"
+  schedule:
+    interval: daily
+    time: '09:00'
+    timezone: Japan
+  open-pull-requests-limit: 10
+- package-ecosystem: docker
+  directory: "/python"
+  schedule:
+    interval: daily
+    time: '09:00'
+    timezone: Japan
+  open-pull-requests-limit: 10
+- package-ecosystem: docker
+  directory: "/php"
+  schedule:
+    interval: daily
+    time: '09:00'
+    timezone: Japan
+  open-pull-requests-limit: 10
+- package-ecosystem: docker
+  directory: "/npm"
+  schedule:
+    interval: daily
+    time: '09:00'
+    timezone: Japan
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: node
+    versions:
+    - ">= 13.a, < 14"
+  - dependency-name: node
+    versions:
+    - ">= 14.a, < 15"
+- package-ecosystem: docker
+  directory: "/java"
+  schedule:
+    interval: daily
+    time: '09:00'
+    timezone: Japan
+  open-pull-requests-limit: 10
+- package-ecosystem: docker
+  directory: "/go"
+  schedule:
+    interval: daily
+    time: '09:00'
+    timezone: Japan
+  open-pull-requests-limit: 10
