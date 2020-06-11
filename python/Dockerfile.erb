@@ -1,4 +1,4 @@
-FROM debian:buster-20200514
+FROM debian:buster-20200607
 
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
