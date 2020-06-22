@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.20.0...HEAD)
 
+- Bump node from 12.18.0-buster to 12.18.1-buster [#224](https://github.com/sider/devon_rex/pull/224)
+
 ## 2.20.0
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.19.0...2.20.0)
