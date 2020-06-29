@@ -2,6 +2,7 @@ require 'erb'
 require 'dotenv/load'
 
 ENV['GLOBAL_RUBY_VERSION'] = Pathname('.ruby-version').read.chomp!
+ENV['DOCKER_BUILDKIT'] = '1'
 
 BUILD_CONTEXTS = %w[
   base
