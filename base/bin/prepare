@@ -30,34 +30,18 @@ required_packages=(
   unzip
   wget
   zlib1g-dev
+  locales
 )
-
 apt-get update -y
 apt-get install -qq -y --no-install-recommends ${required_packages[*]}
-
-# Configure locale
-case "${platform_name}" in
-  'debian:buster' | 'debian:stretch' | 'ubuntu:bionic')
-    apt-get install -qq -y --no-install-recommends locales
-    sed -i -e "s/# ${LANGUAGE}/${LANGUAGE}/" /etc/locale.gen
-    locale-gen "$LANGUAGE"
-    dpkg-reconfigure --frontend noninteractive locales
-    ;;
-  'ubuntu:xenial')
-    apt-get install -qq -y --no-install-recommends language-pack-en python-software-properties
-    locale-gen "$LANGUAGE"
-    update-locale "$LANGUAGE"
-    ;;
-  *)
-    echo "Unknown platform! '${platform_name}'"
-    exit 1
-    ;;
-esac
-
-# Clean up
 apt-get -qyy autoremove
 rm -rf /var/lib/apt/lists/*
 apt-get -qyy clean
+
+# Configure locale
+sed -i -e "s/# ${LANGUAGE}/${LANGUAGE}/" /etc/locale.gen
+locale-gen "$LANGUAGE"
+dpkg-reconfigure --frontend noninteractive locales
 
 # Create a user
 adduser --system --shell /bin/bash --home "$RUNNER_USER_HOME" "$RUNNER_USER"
