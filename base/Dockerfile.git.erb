@@ -1,0 +1,28 @@
+FROM debian:buster-20200607 AS git-builder
+
+ARG GIT_VERSION=<%= ENV.fetch('GIT_VERSION') %>
+ARG GIT_SOURCE_TARBALL=git-${GIT_VERSION}.tar.xz
+ARG GIT_SOURCE_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/${GIT_SOURCE_TARBALL}
+ARG GIT_SOURCE_SHA256_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/sha256sums.asc
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update -y && \
+    apt-get install -qq -y --no-install-recommends \
+      dh-autoreconf \
+      libcurl4-gnutls-dev \
+      libexpat1-dev \
+      gettext \
+      libz-dev \
+      libssl-dev \
+      curl \
+      ca-certificates \
+      ;
+RUN curl -fsSLO --compressed "${GIT_SOURCE_URL}" && \
+    curl -fsSL --compressed "${GIT_SOURCE_SHA256_URL}" | \
+      grep "${GIT_SOURCE_TARBALL}" | \
+      sha256sum --check --strict && \
+    mkdir -p /tmp/git-build && tar -xf "${GIT_SOURCE_TARBALL}" -C /tmp/git-build --strip-components=1
+RUN cd /tmp/git-build && \
+    make configure && \
+    ./configure && \
+    make install DESTDIR=/opt/git

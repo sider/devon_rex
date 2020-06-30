@@ -2,6 +2,36 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.erb INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+FROM debian:buster-20200607 AS git-builder
+
+ARG GIT_VERSION=2.27.0
+ARG GIT_SOURCE_TARBALL=git-${GIT_VERSION}.tar.xz
+ARG GIT_SOURCE_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/${GIT_SOURCE_TARBALL}
+ARG GIT_SOURCE_SHA256_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/sha256sums.asc
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update -y && \
+    apt-get install -qq -y --no-install-recommends \
+      dh-autoreconf \
+      libcurl4-gnutls-dev \
+      libexpat1-dev \
+      gettext \
+      libz-dev \
+      libssl-dev \
+      curl \
+      ca-certificates \
+      ;
+RUN curl -fsSLO --compressed "${GIT_SOURCE_URL}" && \
+    curl -fsSL --compressed "${GIT_SOURCE_SHA256_URL}" | \
+      grep "${GIT_SOURCE_TARBALL}" | \
+      sha256sum --check --strict && \
+    mkdir -p /tmp/git-build && tar -xf "${GIT_SOURCE_TARBALL}" -C /tmp/git-build --strip-components=1
+RUN cd /tmp/git-build && \
+    make configure && \
+    ./configure && \
+    make install DESTDIR=/opt/git
+
+
 FROM openjdk:14.0.1-buster
 
 ENV GLOBAL_RUBY_VERSION 2.7.1
@@ -20,10 +50,15 @@ ENV DEBIAN_FRONTEND noninteractive
 COPY base/bin/prepare /tmp/devon_rex_work/
 RUN /tmp/devon_rex_work/prepare
 
+# Install Git and verify the specified version of Git is installed
+COPY --from=git-builder /opt/git /
+RUN test "$(git --version)" = "git version 2.27.0"
+
+# Install Ruby
 COPY --from=ruby:2.7.1 /usr/local /usr/local/
 
+# Change USER and prepare Bundler
 USER $RUNNER_USER
-
 RUN gem update --system && \
     # NOTE: Install bundler v1 as well as v2 because runner applications need them
     #       in order to parse both versions of Gemfile.lock.
