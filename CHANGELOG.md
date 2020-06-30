@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Drop the support for ubuntu:xenial [#227](https://github.com/sider/devon_rex/pull/227)
 - Use the official Ruby Docker image [#228](https://github.com/sider/devon_rex/pull/228)
 - Use swift:5.2.4-focal as a base image for Swift [#228](https://github.com/sider/devon_rex/pull/228)
+- Use the latest Git after compiling it [#229](https://github.com/sider/devon_rex/pull/229)
 
 ## 2.20.0
 
