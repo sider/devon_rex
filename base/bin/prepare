@@ -1,8 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-platform_name=$(sh -c '. /etc/os-release ; echo ${ID}:${VERSION_CODENAME}')
-
 # Install required packages
 required_packages=(
   autoconf
