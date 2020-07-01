@@ -6,7 +6,6 @@ required_packages=(
   autoconf
   build-essential
   curl
-  git
   gnupg
   libbz2-dev
   libcurl4-openssl-dev
