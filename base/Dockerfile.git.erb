@@ -6,6 +6,7 @@ ARG GIT_SOURCE_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/${GIT_SO
 ARG GIT_SOURCE_SHA256_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/sha256sums.asc
 ARG DEBIAN_FRONTEND=noninteractive
 
+# See https://git-scm.com/book/en/v2/Getting-Started-Installing-Git#_installing_from_source
 RUN apt-get update -y && \
     apt-get install -qq -y --no-install-recommends \
       dh-autoreconf \
