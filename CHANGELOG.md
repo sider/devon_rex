@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 [Full diff](https://github.com/sider/devon_rex/compare/2.22.0...HEAD)
 
 - Bump php from 7.4.7-buster to 7.4.8-buster [#233](https://github.com/sider/devon_rex/pull/233)
+- Bump debian from buster-20200607 to buster-20200720 [#237](https://github.com/sider/devon_rex/pull/237)
 
 ## 2.22.0
 
