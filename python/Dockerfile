@@ -33,7 +33,7 @@ RUN cd /tmp/git-build && \
     make install DESTDIR=/opt/git
 
 
-FROM debian:buster-20200607
+FROM debian:buster-20200720
 
 ENV GLOBAL_RUBY_VERSION 2.7.1
 ENV BUNDLER1_VERSION 1.17.3
