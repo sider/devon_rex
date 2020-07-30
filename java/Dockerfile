@@ -89,6 +89,21 @@ RUN cd "${RUNNER_USER_HOME}" && \
     rm "${MAVEN_BINARY_FILE}" && \
     mvn -v
 
+# Install Gradle
+ENV PATH ${RUNNER_USER_HOME}/gradle/bin:${PATH}
+ARG GRADLE_VERSION=6.5.1
+ARG GRADLE_BINARY_FILE=gradle-${GRADLE_VERSION}-bin.zip
+ARG GRADLE_BINARY_URL=https://services.gradle.org/distributions/${GRADLE_BINARY_FILE}
+RUN cd "${RUNNER_USER_HOME}" && \
+    curl -fsSLO --compressed "${GRADLE_BINARY_URL}" && \
+    curl -fsSL  --compressed "${GRADLE_BINARY_URL}.sha256" | \
+      xargs -I {} echo "{} *${GRADLE_BINARY_FILE}" | \
+      sha256sum --check --strict && \
+    unzip -q "${GRADLE_BINARY_FILE}" && \
+    mv "gradle-${GRADLE_VERSION}" gradle && \
+    rm "${GRADLE_BINARY_FILE}" && \
+    gradle -v
+
 USER root
 RUN rm -rf /tmp/devon_rex_work
 
