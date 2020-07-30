@@ -73,6 +73,8 @@ RUN gem update --system && \
     ruby -v && gem -v && bundle -v
 
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Install Maven
 ARG MAVEN_VERSION=3.6.3
 ARG MAVEN_BINARY_URL=https://www.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz

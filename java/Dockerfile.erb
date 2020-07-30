@@ -5,6 +5,8 @@ FROM openjdk:14.0.2-buster
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Install Maven
 ARG MAVEN_VERSION=<%= ENV.fetch('MAVEN_VERSION') %>
 ARG MAVEN_BINARY_URL=https://www.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
