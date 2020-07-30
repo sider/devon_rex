@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 [Full diff](https://github.com/sider/devon_rex/compare/2.23.0...HEAD)
 
 - Bump git from 2.27.0 to 2.28.0 [#247](https://github.com/sider/devon_rex/pull/247)
+- Install Gradle [#248](https://github.com/sider/devon_rex/pull/248)
 
 ## 2.23.0
 
