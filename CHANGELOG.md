@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.24.0...HEAD)
 
+- Bump debian from buster-20200720 to buster-20200803 [#264](https://github.com/sider/devon_rex/pull/264)
+
 ## 2.24.0
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.23.0...2.24.0)
