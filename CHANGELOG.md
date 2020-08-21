@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.24.0...HEAD)
 
+- Bump swift from 5.2.4-focal to 5.2.5-focal [#262](https://github.com/sider/devon_rex/pull/262)
+
 ## 2.24.0
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.23.0...2.24.0)
