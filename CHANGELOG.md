@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 - Bump swift from 5.2.4-focal to 5.2.5-focal [#262](https://github.com/sider/devon_rex/pull/262)
 - Bump gradle from 6.5.1 to 6.6 [#265](https://github.com/sider/devon_rex/pull/265)
 - Bump python from 3.8.2 to 3.8.5 [#266](https://github.com/sider/devon_rex/pull/266)
+- Bump npm from 6.14.7 to 6.14.8 [#267](https://github.com/sider/devon_rex/pull/267)
 
 ## 2.24.0
 
