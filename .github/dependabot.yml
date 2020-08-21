@@ -7,7 +7,6 @@ updates:
       interval: weekly
       time: "09:00"
       timezone: Asia/Tokyo
-    open-pull-requests-limit: 10
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
@@ -22,7 +21,6 @@ updates:
       interval: weekly
       time: "09:00"
       timezone: Asia/Tokyo
-    open-pull-requests-limit: 10
     versioning-strategy: increase
 
   # Docker
@@ -32,42 +30,36 @@ updates:
       interval: weekly
       time: "09:00"
       timezone: Asia/Tokyo
-    open-pull-requests-limit: 10
   - package-ecosystem: docker
     directory: "/dotnet"
     schedule:
       interval: weekly
       time: "09:00"
       timezone: Asia/Tokyo
-    open-pull-requests-limit: 10
   - package-ecosystem: docker
     directory: "/go"
     schedule:
       interval: weekly
       time: "09:00"
       timezone: Asia/Tokyo
-    open-pull-requests-limit: 10
   - package-ecosystem: docker
     directory: "/haskell"
     schedule:
       interval: weekly
       time: "09:00"
       timezone: Asia/Tokyo
-    open-pull-requests-limit: 10
   - package-ecosystem: docker
     directory: "/java"
     schedule:
       interval: weekly
       time: "09:00"
       timezone: Asia/Tokyo
-    open-pull-requests-limit: 10
   - package-ecosystem: docker
     directory: "/npm"
     schedule:
       interval: weekly
       time: "09:00"
       timezone: Asia/Tokyo
-    open-pull-requests-limit: 10
     ignore:
       - dependency-name: node
         versions:
@@ -79,18 +71,15 @@ updates:
       interval: weekly
       time: "09:00"
       timezone: Asia/Tokyo
-    open-pull-requests-limit: 10
   - package-ecosystem: docker
     directory: "/python"
     schedule:
       interval: weekly
       time: "09:00"
       timezone: Asia/Tokyo
-    open-pull-requests-limit: 10
   - package-ecosystem: docker
     directory: "/swift"
     schedule:
       interval: weekly
       time: "09:00"
       timezone: Asia/Tokyo
-    open-pull-requests-limit: 10
