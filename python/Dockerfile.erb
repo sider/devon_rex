@@ -1,6 +1,6 @@
 <%= ERB.new(File.read('base/Dockerfile.git.erb')).result %>
 
-FROM debian:buster-20200720
+FROM debian:buster-20200803
 
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
