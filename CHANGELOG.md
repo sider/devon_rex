@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file.
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.24.0...HEAD)
 
+- Bump php from 7.4.8-buster to 7.4.9-buster [#250](https://github.com/sider/devon_rex/pull/250)
+- Bump debian from buster-20200720 to buster-20200803 [#264](https://github.com/sider/devon_rex/pull/264)
+- Bump golang from 1.14.6-buster to 1.15.0-buster [#263](https://github.com/sider/devon_rex/pull/263)
 - Bump swift from 5.2.4-focal to 5.2.5-focal [#262](https://github.com/sider/devon_rex/pull/262)
 
 ## 2.24.0
