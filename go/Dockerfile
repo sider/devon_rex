@@ -33,7 +33,7 @@ RUN cd /tmp/git-build && \
     make install DESTDIR=/opt/git
 
 
-FROM golang:1.15.0-buster
+FROM golang:1.15.1-buster
 
 ENV GLOBAL_RUBY_VERSION 2.7.1
 ENV BUNDLER1_VERSION 1.17.3
