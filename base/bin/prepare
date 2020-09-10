@@ -48,6 +48,9 @@ id --user "$RUNNER_USER"
 groups=$(id --groups --name "$RUNNER_USER")
 [[ "$groups" == "$RUNNER_GROUP" ]] || (echo "Unexpected groups: '${groups}'" ; exit 1)
 
+# Add sudoers(5) for update-ca-certificates(8)
+echo "$RUNNER_USER ALL=NOPASSWD: /usr/sbin/update-ca-certificates" > /etc/sudoers.d/update-ca-certificates
+
 # Configure Bash on shell
 cat << 'EOF' >> "${RUNNER_USER_HOME}/.bashrc"
 alias ls='ls --color=auto'
