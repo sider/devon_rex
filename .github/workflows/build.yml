@@ -66,6 +66,7 @@ jobs:
           bundle exec rake dockerfile:generate dockerfile:verify
           bundle exec rake docker:build docker:run
           bundle exec rake docker:run'[sudo update-ca-certificates]'
+          bundle exec rake docker:run'[sudo apt-get clean]'
         env:
           BUILD_CONTEXT: ${{ matrix.build-context }}
           TAG: ${{ steps.define_vars.outputs.tag }}

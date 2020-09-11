@@ -32,7 +32,6 @@ required_packages=(
 apt-get update -y
 apt-get install -qq -y --no-install-recommends ${required_packages[*]}
 apt-get -qyy autoremove
-rm -rf /var/lib/apt/lists/*
 apt-get -qyy clean
 
 # Configure locale
@@ -48,8 +47,9 @@ id --user "$RUNNER_USER"
 groups=$(id --groups --name "$RUNNER_USER")
 [[ "$groups" == "$RUNNER_GROUP" ]] || (echo "Unexpected groups: '${groups}'" ; exit 1)
 
-# Add sudoers(5) for update-ca-certificates(8)
+# Add sudoers(5) configurations for specific commands
 echo "$RUNNER_USER ALL=NOPASSWD: /usr/sbin/update-ca-certificates" > /etc/sudoers.d/update-ca-certificates
+echo "$RUNNER_USER ALL=NOPASSWD: /usr/bin/apt-get" > /etc/sudoers.d/apt-get
 
 # Configure Bash on shell
 cat << 'EOF' >> "${RUNNER_USER_HOME}/.bashrc"
