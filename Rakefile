@@ -63,8 +63,9 @@ namespace :docker do
   end
 
   desc 'Run docker run without command. This task expects each image to show versions'
-  task :run do
-    sh 'docker', 'run', '--rm', image_name
+  task :run, [:cmd] do |_task, args|
+    cmd = (args[:cmd] || '').split(/\s+/)
+    sh 'docker', 'run', '--rm', image_name, *cmd
   end
 
   desc 'Run docker push'
