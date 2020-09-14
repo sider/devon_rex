@@ -1,4 +1,4 @@
-FROM debian:buster-20200803 AS git-builder
+FROM debian:buster-20200908 AS git-builder
 
 ARG GIT_VERSION=<%= ENV.fetch('GIT_VERSION') %>
 ARG GIT_SOURCE_TARBALL=git-${GIT_VERSION}.tar.xz
