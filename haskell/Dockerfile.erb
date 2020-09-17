@@ -1,6 +1,6 @@
 <%= ERB.new(File.read('base/Dockerfile.git.erb')).result %>
 
-FROM haskell:8.10.1-buster
+FROM haskell:8.10.2-buster
 
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
