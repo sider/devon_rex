@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.26.0...HEAD)
 
+- Fix the feature to change the owner of /usr/local/share/ca-certificates [#288](https://github.com/sider/devon_rex/pull/288)
+
 ## 2.26.0
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.25.0...2.26.0)
