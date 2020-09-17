@@ -59,6 +59,10 @@ RUN test "$(git --version)" = "git version 2.28.0"
 # Install Ruby
 COPY --from=ruby:2.7.1 /usr/local /usr/local/
 
+# Change owner to let $RUNNER_USER add certificate files
+# WARNING: This must be done after copying ruby:2.7.1
+RUN chown "$RUNNER_USER" /usr/local/share/ca-certificates
+
 # Change USER and prepare Bundler
 USER $RUNNER_USER
 RUN gem update --system && \

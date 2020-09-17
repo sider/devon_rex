@@ -67,6 +67,7 @@ jobs:
           bundle exec rake docker:build docker:run
           bundle exec rake docker:run'[sudo update-ca-certificates]'
           bundle exec rake docker:run'[sudo apt-get clean]'
+          bundle exec rake docker:run'[echo file > /usr/local/share/ca-certificates/file.crt]'
         env:
           BUILD_CONTEXT: ${{ matrix.build-context }}
           TAG: ${{ steps.define_vars.outputs.tag }}
