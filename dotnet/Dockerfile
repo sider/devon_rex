@@ -35,7 +35,7 @@ RUN cd /tmp/git-build && \
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster
 
-ENV GLOBAL_RUBY_VERSION 2.7.1
+ENV GLOBAL_RUBY_VERSION 2.7.2
 ENV BUNDLER1_VERSION 1.17.3
 ENV BUNDLER2_VERSION 2.1.4
 ENV LANG en_US.UTF-8
@@ -56,10 +56,10 @@ COPY --from=git-builder /opt/git /
 RUN test "$(git --version)" = "git version 2.28.0"
 
 # Install Ruby
-COPY --from=ruby:2.7.1 /usr/local /usr/local/
+COPY --from=ruby:2.7.2 /usr/local /usr/local/
 
 # Change owner to let $RUNNER_USER add certificate files
-# WARNING: This must be done after copying ruby:2.7.1
+# WARNING: This must be done after copying ruby:2.7.2
 RUN chown "$RUNNER_USER" /usr/local/share/ca-certificates
 
 # Change USER and prepare Bundler
