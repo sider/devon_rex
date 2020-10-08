@@ -41,8 +41,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: .ruby-version
       - name: Setup gems
         run: bundle install
       - name: Show Docker information
