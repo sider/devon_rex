@@ -33,7 +33,7 @@ RUN cd /tmp/git-build && \
     make install DESTDIR=/opt/git
 
 
-FROM php:7.4.10-buster
+FROM php:7.4.11-buster
 
 ENV GLOBAL_RUBY_VERSION 2.7.2
 ENV BUNDLER1_VERSION 1.17.3
