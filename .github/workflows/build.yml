@@ -41,8 +41,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
-      - name: Setup gems
-        run: bundle install
+        with:
+          bundler-cache: true
       - name: Show Docker information
         run: docker info
       - name: Define variables
