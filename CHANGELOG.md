@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 [Full diff](https://github.com/sider/devon_rex/compare/2.26.1...HEAD)
 
 - Bump Ruby from 2.7.1 to 2.7.2 [#293](https://github.com/sider/devon_rex/pull/293)
+- Bump gradle from 6.6 to 6.7 [#296](https://github.com/sider/devon_rex/pull/296)
 
 ## 2.26.1
 
