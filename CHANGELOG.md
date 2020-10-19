@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - Bump Ruby from 2.7.1 to 2.7.2 [#293](https://github.com/sider/devon_rex/pull/293)
 - Bump gradle from 6.6 to 6.7 [#296](https://github.com/sider/devon_rex/pull/296)
+- Bump debian from buster-20200908 to buster-20201012 [#298](https://github.com/sider/devon_rex/pull/298)
 
 ## 2.26.1
 
