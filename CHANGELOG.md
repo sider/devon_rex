@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 
 - Bump Ruby from 2.7.1 to 2.7.2 [#293](https://github.com/sider/devon_rex/pull/293)
 - Bump gradle from 6.6 to 6.7 [#296](https://github.com/sider/devon_rex/pull/296)
+- Bump debian from buster-20200908 to buster-20201012 [#298](https://github.com/sider/devon_rex/pull/298)
+- Bump swift from 5.2.5-focal to 5.3-focal [#289](https://github.com/sider/devon_rex/pull/289)
+- Bump php from 7.4.10-buster to 7.4.11-buster [#291](https://github.com/sider/devon_rex/pull/291)
+- Bump node from 12.18.3-buster to 12.19.0-buster [#295](https://github.com/sider/devon_rex/pull/295)
 
 ## 2.26.1
 
