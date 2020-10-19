@@ -34,7 +34,7 @@ RUN cd /tmp/git-build && \
 
 
 # NOTE: Make sure the version of glibc is higher than the system that compiles Ruby.
-FROM swift:5.2.5-focal
+FROM swift:5.3-focal
 
 ENV GLOBAL_RUBY_VERSION 2.7.2
 ENV BUNDLER1_VERSION 1.17.3
