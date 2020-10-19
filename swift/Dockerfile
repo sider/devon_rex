@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.erb INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM debian:buster-20200908 AS git-builder
+FROM debian:buster-20201012 AS git-builder
 
 ARG GIT_VERSION=2.28.0
 ARG GIT_SOURCE_TARBALL=git-${GIT_VERSION}.tar.xz
@@ -34,7 +34,7 @@ RUN cd /tmp/git-build && \
 
 
 # NOTE: Make sure the version of glibc is higher than the system that compiles Ruby.
-FROM swift:5.2.5-focal
+FROM swift:5.3-focal
 
 ENV GLOBAL_RUBY_VERSION 2.7.2
 ENV BUNDLER1_VERSION 1.17.3
