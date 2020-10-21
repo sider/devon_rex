@@ -33,7 +33,7 @@ RUN cd /tmp/git-build && \
     make install DESTDIR=/opt/git
 
 
-FROM debian:buster-20200908
+FROM python:3.8.6-buster
 
 ENV GLOBAL_RUBY_VERSION 2.7.2
 ENV BUNDLER1_VERSION 1.17.3
@@ -77,23 +77,8 @@ RUN gem update --system && \
     ruby -v && gem -v && bundle -v
 
 
-# Install pyenv
-USER $RUNNER_USER
-RUN curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
-ARG PYENV_SHIMS_BIN="$RUNNER_USER_HOME/.pyenv/shims"
-ARG PYENV_BIN="$RUNNER_USER_HOME/.pyenv/bin"
-ENV PATH $PYENV_SHIMS_BIN:$PYENV_BIN:$PATH
-ENV PYTHON2_VERSION 2.7.16
-ENV PYTHON3_VERSION 3.8.5
-
-# Install Python 2/3 as well as Pipenv for each runtime
-RUN pyenv install ${PYTHON2_VERSION} && \
-    pyenv install ${PYTHON3_VERSION} && \
-    pyenv rehash && \
-    for version in $(pyenv versions --bare); do \
-      pyenv global ${version} && pip install pipenv; \
-    done && \
-    pyenv global ${PYTHON3_VERSION}
+# Install Pipenv
+RUN pip install pipenv
 
 USER root
 RUN rm -rf /tmp/devon_rex_work
@@ -102,4 +87,4 @@ RUN rm -rf /tmp/devon_rex_work
 USER $RUNNER_USER
 
 
-CMD pyenv versions
+CMD ["python", "--version"]

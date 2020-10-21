@@ -1,28 +1,13 @@
 <%= ERB.new(File.read('base/Dockerfile.git.erb')).result %>
 
-FROM debian:buster-20200908
+FROM python:3.8.6-buster
 
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
 
-# Install pyenv
-USER $RUNNER_USER
-RUN curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
-ARG PYENV_SHIMS_BIN="$RUNNER_USER_HOME/.pyenv/shims"
-ARG PYENV_BIN="$RUNNER_USER_HOME/.pyenv/bin"
-ENV PATH $PYENV_SHIMS_BIN:$PYENV_BIN:$PATH
-ENV PYTHON2_VERSION <%= ENV.fetch('PYTHON2_VERSION') %>
-ENV PYTHON3_VERSION <%= ENV.fetch('PYTHON3_VERSION') %>
-
-# Install Python 2/3 as well as Pipenv for each runtime
-RUN pyenv install ${PYTHON2_VERSION} && \
-    pyenv install ${PYTHON3_VERSION} && \
-    pyenv rehash && \
-    for version in $(pyenv versions --bare); do \
-      pyenv global ${version} && pip install pipenv; \
-    done && \
-    pyenv global ${PYTHON3_VERSION}
+# Install Pipenv
+RUN pip install pipenv
 
 <%= ERB.new(File.read('base/Dockerfile.cleanup.erb')).result %>
 
-CMD pyenv versions
+CMD ["python", "--version"]
