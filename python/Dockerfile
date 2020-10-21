@@ -77,8 +77,13 @@ RUN gem update --system && \
     ruby -v && gem -v && bundle -v
 
 
+# Set PATH from site module. We can get this `~/.local` via `python -m site --user-base`
+ARG PYTHON_USER_BASE_BIN="$RUNNER_USER_HOME/.local/bin"
+ENV PATH $PYTHON_USER_BASE_BIN:$PATH
+
 # Install Pipenv
-RUN pip install pipenv
+RUN pip install pipenv && \
+    pipenv --version
 
 USER root
 RUN rm -rf /tmp/devon_rex_work

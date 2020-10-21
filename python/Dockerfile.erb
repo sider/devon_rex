@@ -5,8 +5,13 @@ FROM python:3.8.6-buster
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
 
+# Set PATH from site module. We can get this `~/.local` via `python -m site --user-base`
+ARG PYTHON_USER_BASE_BIN="$RUNNER_USER_HOME/.local/bin"
+ENV PATH $PYTHON_USER_BASE_BIN:$PATH
+
 # Install Pipenv
-RUN pip install pipenv
+RUN pip install pipenv && \
+    pipenv --version
 
 <%= ERB.new(File.read('base/Dockerfile.cleanup.erb')).result %>
 
