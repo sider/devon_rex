@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file.
 - Bump php from 7.4.10-buster to 7.4.11-buster [#291](https://github.com/sider/devon_rex/pull/291)
 - Bump node from 12.18.3-buster to 12.19.0-buster [#295](https://github.com/sider/devon_rex/pull/295)
 - Bump golang from 1.15.2-buster to 1.15.3-buster [#300](https://github.com/sider/devon_rex/pull/300)
-- Drop Python 2 and bump Python 3 from 3.8.5 to 3.8.6 [#307](https://github.com/sider/devon_rex/pull/307)
+- Drop Python 2 and bump Python 3 from 3.8.5 to 3.9.0 [#307](https://github.com/sider/devon_rex/pull/307) [#310](https://github.com/sider/devon_rex/pull/310)
 
 ## 2.26.1
 
