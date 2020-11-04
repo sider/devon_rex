@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 [Full diff](https://github.com/sider/devon_rex/compare/2.27.0...HEAD)
 
 - Bump php from 7.4.11-buster to 7.4.12-buster [#311](https://github.com/sider/devon_rex/pull/311)
+- Downgrade Composer version from v2 to v1 [#313](https://github.com/sider/devon_rex/pull/313)
 
 ## 2.27.0
 
