@@ -97,7 +97,7 @@ RUN cd "${RUNNER_USER_HOME}" && \
 
 # Install Gradle
 ENV PATH ${RUNNER_USER_HOME}/gradle/bin:${PATH}
-ARG GRADLE_VERSION=6.7
+ARG GRADLE_VERSION=6.7.1
 ARG GRADLE_BINARY_FILE=gradle-${GRADLE_VERSION}-bin.zip
 ARG GRADLE_BINARY_URL=https://services.gradle.org/distributions/${GRADLE_BINARY_FILE}
 RUN cd "${RUNNER_USER_HOME}" && \
