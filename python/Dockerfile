@@ -82,7 +82,7 @@ ARG PYTHON_USER_BASE_BIN="$RUNNER_USER_HOME/.local/bin"
 ENV PATH $PYTHON_USER_BASE_BIN:$PATH
 
 # Install Pipenv
-RUN pip install pipenv==2020.8.13 && \
+RUN pip install pipenv==2020.11.15 && \
     pipenv --version
 
 USER root
