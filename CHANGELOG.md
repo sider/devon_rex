@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Bump Pipenv from 2020.8.13 to 2020.11.15 [#321](https://github.com/sider/devon_rex/pull/321)
 - Bump debian from buster-20201012 to buster-20201117 [#324](https://github.com/sider/devon_rex/pull/324)
 - Bump npm from 6.14.8 to 6.14.9 [#332](https://github.com/sider/devon_rex/pull/332)
+- Bump golang from 1.15.3-buster to 1.15.5-buster [#317](https://github.com/sider/devon_rex/pull/317)
 
 ## 2.27.1
 
