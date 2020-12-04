@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - Bump gradle from 6.7 to 6.7.1 [#318](https://github.com/sider/devon_rex/pull/318)
 - Bump Pipenv from 2020.8.13 to 2020.11.15 [#321](https://github.com/sider/devon_rex/pull/321)
+- Bump debian from buster-20201012 to buster-20201117 [#324](https://github.com/sider/devon_rex/pull/324)
 
 ## 2.27.1
 
