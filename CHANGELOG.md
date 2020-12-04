@@ -4,7 +4,24 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.26.1...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.27.1...HEAD)
+
+- Bump gradle from 6.7 to 6.7.1 [#318](https://github.com/sider/devon_rex/pull/318)
+- Bump Pipenv from 2020.8.13 to 2020.11.15 [#321](https://github.com/sider/devon_rex/pull/321)
+- Bump debian from buster-20201012 to buster-20201117 [#324](https://github.com/sider/devon_rex/pull/324)
+- Bump npm from 6.14.8 to 6.14.9 [#332](https://github.com/sider/devon_rex/pull/332)
+- Bump golang from 1.15.3-buster to 1.15.5-buster [#317](https://github.com/sider/devon_rex/pull/317)
+
+## 2.27.1
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.27.0...2.27.1)
+
+- Bump php from 7.4.11-buster to 7.4.12-buster [#311](https://github.com/sider/devon_rex/pull/311)
+- Downgrade Composer version from v2 to v1 [#313](https://github.com/sider/devon_rex/pull/313)
+
+## 2.27.0
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.26.1...2.27.0)
 
 - Bump Ruby from 2.7.1 to 2.7.2 [#293](https://github.com/sider/devon_rex/pull/293)
 - Bump gradle from 6.6 to 6.7 [#296](https://github.com/sider/devon_rex/pull/296)
@@ -13,7 +30,7 @@ All notable changes to this project will be documented in this file.
 - Bump php from 7.4.10-buster to 7.4.11-buster [#291](https://github.com/sider/devon_rex/pull/291)
 - Bump node from 12.18.3-buster to 12.19.0-buster [#295](https://github.com/sider/devon_rex/pull/295)
 - Bump golang from 1.15.2-buster to 1.15.3-buster [#300](https://github.com/sider/devon_rex/pull/300)
-- Drop Python 2 and bump Python 3 from 3.8.5 to 3.8.6 [#307](https://github.com/sider/devon_rex/pull/307)
+- Drop Python 2 and bump Python 3 from 3.8.5 to 3.9.0 [#307](https://github.com/sider/devon_rex/pull/307) [#310](https://github.com/sider/devon_rex/pull/310)
 
 ## 2.26.1
 

@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.erb INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM debian:buster-20201012 AS git-builder
+FROM debian:buster-20201117 AS git-builder
 
 ARG GIT_VERSION=2.28.0
 ARG GIT_SOURCE_TARBALL=git-${GIT_VERSION}.tar.xz
@@ -33,7 +33,7 @@ RUN cd /tmp/git-build && \
     make install DESTDIR=/opt/git
 
 
-FROM python:3.8.6-buster
+FROM python:3.9.0-buster
 
 ENV GLOBAL_RUBY_VERSION 2.7.2
 ENV BUNDLER1_VERSION 1.17.3
@@ -82,7 +82,7 @@ ARG PYTHON_USER_BASE_BIN="$RUNNER_USER_HOME/.local/bin"
 ENV PATH $PYTHON_USER_BASE_BIN:$PATH
 
 # Install Pipenv
-RUN pip install pipenv==2020.8.13 && \
+RUN pip install pipenv==2020.11.15 && \
     pipenv --version
 
 USER root
