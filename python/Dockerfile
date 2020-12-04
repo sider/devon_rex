@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.erb INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM debian:buster-20201012 AS git-builder
+FROM debian:buster-20201117 AS git-builder
 
 ARG GIT_VERSION=2.28.0
 ARG GIT_SOURCE_TARBALL=git-${GIT_VERSION}.tar.xz
@@ -82,7 +82,7 @@ ARG PYTHON_USER_BASE_BIN="$RUNNER_USER_HOME/.local/bin"
 ENV PATH $PYTHON_USER_BASE_BIN:$PATH
 
 # Install Pipenv
-RUN pip install pipenv==2020.8.13 && \
+RUN pip install pipenv==2020.11.15 && \
     pipenv --version
 
 USER root
