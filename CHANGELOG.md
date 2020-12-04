@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - Bump debian from buster-20201012 to buster-20201117 [#324](https://github.com/sider/devon_rex/pull/324)
 - Bump npm from 6.14.8 to 6.14.9 [#332](https://github.com/sider/devon_rex/pull/332)
 - Bump golang from 1.15.3-buster to 1.15.5-buster [#317](https://github.com/sider/devon_rex/pull/317)
+- Bump openjdk from 14.0.2-buster to 15.0.1-buster [#308](https://github.com/sider/devon_rex/pull/308)
 
 ## 2.27.1
 
