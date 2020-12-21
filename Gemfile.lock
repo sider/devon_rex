@@ -9,7 +9,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     dotenv (2.7.6)
-    rake (13.0.1)
+    rake (13.0.2)
 
 PLATFORMS
   ruby
