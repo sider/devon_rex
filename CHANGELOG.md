@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 [Full diff](https://github.com/sider/devon_rex/compare/2.28.0...HEAD)
 
 - Bump npm from 6.14.9 to 6.14.10 [#349](https://github.com/sider/devon_rex/pull/349)
+- Bump bundler from 2.1.4 to 2.2.3 [#352](https://github.com/sider/devon_rex/pull/352)
 
 ## 2.28.0
 
