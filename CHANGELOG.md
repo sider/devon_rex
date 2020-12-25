@@ -2,9 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.29.0...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.30.0...HEAD)
+
+## 2.30.0
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.29.0...2.30.0)
 
 - Bump git from 2.28.0 to 2.29.2 [#357](https://github.com/sider/devon_rex/pull/357)
 
