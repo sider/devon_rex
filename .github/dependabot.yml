@@ -27,8 +27,8 @@ updates:
   - package-ecosystem: pip
     directory: "/python"
     schedule:
-      interval: weekly
-      time: "09:00"
+      interval: daily
+      time: "15:52"
       timezone: Asia/Tokyo
 
   # Docker
