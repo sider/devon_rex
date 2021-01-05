@@ -1,0 +1,8 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+pip = "==20.3.2"
+pipenv = "==2020.11.15"

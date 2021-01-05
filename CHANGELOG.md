@@ -7,6 +7,8 @@ All notable changes to this project will be documented in this file.
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.30.0...HEAD)
 
+- Install pip and pipenv via Pipfile [#360](https://github.com/sider/devon_rex/pull/360)
+
 ## 2.30.0
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.29.0...2.30.0)
