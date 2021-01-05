@@ -23,6 +23,14 @@ updates:
       timezone: Asia/Tokyo
     versioning-strategy: increase
 
+  # Python
+  - package-ecosystem: pip
+    directory: "/python"
+    schedule:
+      interval: weekly
+      time: "09:00"
+      timezone: Asia/Tokyo
+
   # Docker
   - package-ecosystem: docker
     directory: "/base"
