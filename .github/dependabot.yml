@@ -28,7 +28,7 @@ updates:
     directory: "/python"
     schedule:
       interval: daily
-      time: "15:35"
+      time: "15:52"
       timezone: Asia/Tokyo
 
   # Docker
