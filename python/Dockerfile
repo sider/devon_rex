@@ -81,8 +81,14 @@ RUN gem update --system && \
 ARG PYTHON_USER_BASE_BIN="$RUNNER_USER_HOME/.local/bin"
 ENV PATH $PYTHON_USER_BASE_BIN:$PATH
 
-# Install Pipenv
-RUN pip install pipenv==2020.11.15 && \
+# Install pip and Pipenv
+USER root
+COPY python/Pipfile /tmp/
+RUN cd /tmp && \
+    pip install pipenv && \
+    pipenv install --system --skip-lock && \
+    rm /tmp/Pipfile && \
+    pip --version && \
     pipenv --version
 
 USER root
