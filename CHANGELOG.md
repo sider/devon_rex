@@ -2,10 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
-
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.30.0...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.30.1...HEAD)
+
+
+## 2.30.1
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.30.0...2.30.1)
 
 - Install pip and pipenv via `requirements.txt` [#364](https://github.com/sider/devon_rex/pull/364)
 
