@@ -9,13 +9,10 @@ FROM python:3.9.1-buster
 ARG PYTHON_USER_BASE_BIN="$RUNNER_USER_HOME/.local/bin"
 ENV PATH $PYTHON_USER_BASE_BIN:$PATH
 
-# Install pip and Pipenv
-USER root
-COPY python/Pipfile /tmp/
-RUN cd /tmp && \
-    pip install pipenv && \
-    pipenv install --system --skip-lock --clear && \
-    rm /tmp/Pipfile && \
+# Install `pip` and `pipenv`
+COPY python/requirements.txt "${RUNNER_USER_HOME}/"
+RUN pip install "--requirement=${RUNNER_USER_HOME}/requirements.txt" --user --quiet --no-cache-dir && \
+    rm "${RUNNER_USER_HOME}/requirements.txt" && \
     pip --version && \
     pipenv --version
 
