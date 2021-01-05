@@ -86,7 +86,7 @@ USER root
 COPY python/Pipfile /tmp/
 RUN cd /tmp && \
     pip install pipenv && \
-    pipenv install --system --skip-lock && \
+    pipenv install --system --skip-lock --clear && \
     rm /tmp/Pipfile && \
     pip --version && \
     pipenv --version
