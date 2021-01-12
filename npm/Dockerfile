@@ -36,8 +36,6 @@ RUN cd /tmp/git-build && \
 FROM node:12.20.0-buster
 
 ENV GLOBAL_RUBY_VERSION 2.7.2
-ENV BUNDLER1_VERSION 1.17.3
-ENV BUNDLER2_VERSION 2.2.3
 ENV LANG en_US.UTF-8
 ENV LANGUAGE $LANG
 ENV LC_ALL $LANG
@@ -62,19 +60,23 @@ COPY --from=ruby:2.7.2 /usr/local /usr/local/
 # WARNING: This must be done after copying ruby:2.7.2
 RUN chown "$RUNNER_USER" /usr/local/share/ca-certificates
 
-# Change USER and prepare Bundler
-USER $RUNNER_USER
+# Update the system `gem` and `bundler`. `GEM_HOME` is created automatically by the root user, so `chown` is needed.
 RUN gem update --system && \
+    chown -R "${RUNNER_USER}:${RUNNER_GROUP}" "${GEM_HOME}"
+
+# Change USER and prepare Bundler
+COPY Gemfile /tmp/devon_rex_work/
+USER $RUNNER_USER
+RUN bundler_version=$(grep --word-regexp 'bundler' /tmp/devon_rex_work/Gemfile | grep --only-matching --extended-regexp '[0-9.]+') && \
+    # Verify Bundler installation
+    actual_bundler_version=$(bundle -v) && \
+    test "${actual_bundler_version}" = "Bundler version ${bundler_version}" || (echo "Unexpected Bundler version! ${actual_bundler_version}" ; exit 1) && \
     # NOTE: Install bundler v1 as well as v2 because runner applications need them
     #       in order to parse both versions of Gemfile.lock.
     #       See https://bunndler.io/blog/2019/01/03/announcing-bundler-2.html
-    gem install bundler:"${BUNDLER1_VERSION}" && \
-    gem install bundler:"${BUNDLER2_VERSION}" && \
-    # Verify Bundler installation
-    test "$(bundle -v)" = "Bundler version ${BUNDLER2_VERSION}" || (echo 'Unexpected Bundler version!' ; exit 1) && \
+    gem install bundler:1.17.3 && \
     gem info bundler && \
-    gem environment && \
-    ruby -v && gem -v && bundle -v
+    gem environment
 
 
 USER root
