@@ -76,7 +76,10 @@ RUN bundler_version=$(grep --word-regexp 'bundler' /tmp/devon_rex_work/Gemfile |
     #       See https://bunndler.io/blog/2019/01/03/announcing-bundler-2.html
     gem install bundler:1.17.3 && \
     gem info bundler && \
-    gem environment
+    gem environment && \
+    ruby -v && \
+    gem -v && \
+    bundle -v
 
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
