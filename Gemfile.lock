@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/ybiquitous/aufgaben
-  revision: 3a17f6a7a722e37f60a393246edc44ef78373588
-  tag: 0.6.0
+  revision: d8da50e045619349adc2d8e69282eb55df87d302
+  tag: 0.6.1
   specs:
-    aufgaben (0.6.0)
+    aufgaben (0.6.1)
 
 GEM
   remote: https://rubygems.org/
