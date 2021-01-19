@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - Bump npm from 6.14.10 to 6.14.11 [#371](https://github.com/sider/devon_rex/pull/371)
 - Manage Bundler version in Gemfile [#372](https://github.com/sider/devon_rex/pull/372)
+- Bump node from 12.20.0-buster to 12.20.1-buster [#369](https://github.com/sider/devon_rex/pull/369)
 
 ## 2.30.1
 
