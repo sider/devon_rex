@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - Bump git from 2.29.2 to 2.30.0 [#390](https://github.com/sider/devon_rex/pull/390)
 - Bump php from 7.4.12-buster to 7.4.14-buster [#394](https://github.com/sider/devon_rex/pull/394)
 - Bump golang from 1.15.6-buster to 1.15.7-buster [#392](https://github.com/sider/devon_rex/pull/392)
+- Bump openjdk from 15.0.1-buster to 15.0.2-buster [#393](https://github.com/sider/devon_rex/pull/393)
 
 ## 2.30.1
 
