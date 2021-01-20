@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 - Bump debian from buster-20201209 to buster-20210111 [#376](https://github.com/sider/devon_rex/pull/376)
 - Bump bundler from 2.2.5 to 2.2.6 [#388](https://github.com/sider/devon_rex/pull/388)
 - Bump gradle from 6.7.1 to 6.8 [#389](https://github.com/sider/devon_rex/pull/389)
+- Bump git from 2.29.2 to 2.30.0 [#390](https://github.com/sider/devon_rex/pull/390)
 
 ## 2.30.1
 
