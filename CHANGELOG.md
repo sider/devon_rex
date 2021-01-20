@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - Bump bundler from 2.2.5 to 2.2.6 [#388](https://github.com/sider/devon_rex/pull/388)
 - Bump gradle from 6.7.1 to 6.8 [#389](https://github.com/sider/devon_rex/pull/389)
 - Bump git from 2.29.2 to 2.30.0 [#390](https://github.com/sider/devon_rex/pull/390)
+- Bump php from 7.4.12-buster to 7.4.14-buster [#394](https://github.com/sider/devon_rex/pull/394)
 
 ## 2.30.1
 
