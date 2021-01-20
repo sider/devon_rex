@@ -8,4 +8,4 @@ gem 'aufgaben', github: 'ybiquitous/aufgaben', tag: '0.6.1'
 gem 'dotenv'
 gem 'rake'
 
-gem 'bundler', '= 2.2.5'
+gem 'bundler', '= 2.2.6'

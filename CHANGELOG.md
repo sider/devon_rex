@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Manage Bundler version in Gemfile [#372](https://github.com/sider/devon_rex/pull/372)
 - Bump node from 12.20.0-buster to 12.20.1-buster [#369](https://github.com/sider/devon_rex/pull/369)
 - Bump debian from buster-20201209 to buster-20210111 [#376](https://github.com/sider/devon_rex/pull/376)
+- Bump bundler from 2.2.5 to 2.2.6 [#388](https://github.com/sider/devon_rex/pull/388)
 
 ## 2.30.1
 
