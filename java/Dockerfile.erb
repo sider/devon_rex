@@ -9,8 +9,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install Maven
 ARG MAVEN_VERSION=<%= ENV.fetch('MAVEN_VERSION') %>
-ARG MAVEN_BINARY_URL=https://www.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
 ARG MAVEN_BINARY_FILE=apache-maven-${MAVEN_VERSION}-bin.tar.gz
+ARG MAVEN_BINARY_URL=https://www.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/${MAVEN_BINARY_FILE}
 ARG MAVEN_HOME=${RUNNER_USER_HOME}/maven
 ENV PATH ${MAVEN_HOME}/bin:${PATH}
 RUN cd "${RUNNER_USER_HOME}" && \
@@ -21,22 +21,23 @@ RUN cd "${RUNNER_USER_HOME}" && \
     mkdir -p "${MAVEN_HOME}" && \
     tar -xzf "${MAVEN_BINARY_FILE}" -C "${MAVEN_HOME}" --strip-components 1 && \
     rm "${MAVEN_BINARY_FILE}" && \
-    mvn -v
+    mvn --version | grep "Apache Maven ${MAVEN_VERSION}"
 
 # Install Gradle
-ENV PATH ${RUNNER_USER_HOME}/gradle/bin:${PATH}
 ARG GRADLE_VERSION=<%= ENV.fetch('GRADLE_VERSION') %>
 ARG GRADLE_BINARY_FILE=gradle-${GRADLE_VERSION}-bin.zip
 ARG GRADLE_BINARY_URL=https://services.gradle.org/distributions/${GRADLE_BINARY_FILE}
+ARG GRADLE_HOME=${RUNNER_USER_HOME}/gradle
+ENV PATH ${GRADLE_HOME}/bin:${PATH}
 RUN cd "${RUNNER_USER_HOME}" && \
     curl -fsSLO --compressed "${GRADLE_BINARY_URL}" && \
     curl -fsSL  --compressed "${GRADLE_BINARY_URL}.sha256" | \
       xargs -I {} echo "{} *${GRADLE_BINARY_FILE}" | \
       sha256sum --check --strict && \
     unzip -q "${GRADLE_BINARY_FILE}" && \
-    mv "gradle-${GRADLE_VERSION}" gradle && \
+    mv "gradle-${GRADLE_VERSION}" "${GRADLE_HOME}" && \
     rm "${GRADLE_BINARY_FILE}" && \
-    gradle -v
+    gradle --version | grep "Gradle ${GRADLE_VERSION}"
 
 <%= ERB.new(File.read('base/Dockerfile.cleanup.erb')).result %>
 
