@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.30.1...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.40.0...HEAD)
+
+## 2.40.0
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.30.1...2.40.0)
 
 - Bump npm from 6.14.10 to 6.14.11 [#371](https://github.com/sider/devon_rex/pull/371)
 - Manage Bundler version in Gemfile [#372](https://github.com/sider/devon_rex/pull/372)
