@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.40.0...HEAD)
 
+- Bump bundler from 2.2.7 to 2.2.8 [#402](https://github.com/sider/devon_rex/pull/402)
+
 ## 2.40.0
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.30.1...2.40.0)
