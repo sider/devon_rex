@@ -16,9 +16,9 @@ PLATFORMS
 
 DEPENDENCIES
   aufgaben!
-  bundler (= 2.2.7)
+  bundler (= 2.2.8)
   dotenv
   rake
 
 BUNDLED WITH
-   2.2.7
+   2.2.8
