@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.40.0...HEAD)
 
+- Bump pip from 21.0 to 21.0.1 [#401](https://github.com/sider/devon_rex/pull/401)
+
 ## 2.40.0
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.30.1...2.40.0)
