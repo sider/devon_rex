@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 [Full diff](https://github.com/sider/devon_rex/compare/2.40.1...HEAD)
 
 - Bump golang from 1.15.7-buster to 1.15.8-buster [#404](https://github.com/sider/devon_rex/pull/404)
+- Bump dotnet/core/sdk from 3.1-buster to 3.1.405-buster [#403](https://github.com/sider/devon_rex/pull/403)
 
 ## 2.40.1
 
