@@ -52,8 +52,10 @@ end
 
 namespace :docker do
   desc 'Run docker build'
-  task :build => 'dockerfile:generate' do
-    sh 'docker', 'build', '-t', image_name, '-f', "#{build_context}/Dockerfile", '.'
+  task :build, [:options] => 'dockerfile:generate' do |_task, args|
+    options = ["--tag=#{image_name}", "--file=#{build_context}/Dockerfile"]
+    options += (args[:options] || '').split(/\s+/)
+    sh 'docker', 'build', *options, '.'
   end
 
   desc 'Run docker run with any command'
