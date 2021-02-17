@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.40.3...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.40.4...HEAD)
+
+## 2.40.4
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.40.3...2.40.4)
 
 - Bump dotnet/sdk from 3.1.405-buster to 3.1.406-buster [#414](https://github.com/sider/devon_rex/pull/414)
 - Bump debian from buster-20210111 to buster-20210208 [#421](https://github.com/sider/devon_rex/pull/421)
