@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.40.4...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.40.5...HEAD)
+
+## 2.40.5
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.40.4...2.40.5)
 
 - Update bundler requirement from 2.2.10 to 2.2.11 [#428](https://github.com/sider/devon_rex/pull/428)
 - Bump python from 3.9.1-buster to 3.9.2-buster [#429](https://github.com/sider/devon_rex/pull/429)
