@@ -1,4 +1,4 @@
-[![Build](https://github.com/sider/devon_rex/workflows/Build/badge.svg)](https://github.com/sider/devon_rex/actions?query=workflow%3ABuild)
+[![Build](https://github.com/sider/devon_rex/workflows/Build/badge.svg)](https://github.com/sider/devon_rex/actions/workflows/build.yml?query=branch%3Amaster)
 
 # devon_rex
 

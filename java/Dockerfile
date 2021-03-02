@@ -4,7 +4,7 @@
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 FROM debian:buster-20210208 AS git-builder
 
-ARG GIT_VERSION=2.30.0
+ARG GIT_VERSION=2.30.1
 ARG GIT_SOURCE_TARBALL=git-${GIT_VERSION}.tar.xz
 ARG GIT_SOURCE_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/${GIT_SOURCE_TARBALL}
 ARG GIT_SOURCE_SHA256_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/sha256sums.asc
@@ -51,7 +51,7 @@ RUN /tmp/devon_rex_work/prepare
 
 # Install Git and verify the specified version of Git is installed
 COPY --from=git-builder /opt/git /
-RUN test "$(git --version)" = "git version 2.30.0"
+RUN test "$(git --version)" = "git version 2.30.1"
 
 # Install Ruby
 COPY --from=ruby:2.7.2 /usr/local /usr/local/
@@ -101,7 +101,7 @@ RUN cd "${RUNNER_USER_HOME}" && \
     mvn --version | grep "Apache Maven ${MAVEN_VERSION}"
 
 # Install Gradle
-ARG GRADLE_VERSION=6.8.1
+ARG GRADLE_VERSION=6.8.3
 ARG GRADLE_BINARY_FILE=gradle-${GRADLE_VERSION}-bin.zip
 ARG GRADLE_BINARY_URL=https://services.gradle.org/distributions/${GRADLE_BINARY_FILE}
 ARG GRADLE_HOME=${RUNNER_USER_HOME}/gradle

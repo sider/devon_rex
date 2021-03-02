@@ -4,9 +4,25 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.40.4...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.40.6...HEAD)
+
+- Bump gradle from 6.8.1 to 6.8.3 [#432](https://github.com/sider/devon_rex/pull/432)
+- Bump composer from 1.10.19 to 1.10.20 [#433](https://github.com/sider/devon_rex/pull/433)
+- Bump git from 2.30.0 to 2.30.1 [#434](https://github.com/sider/devon_rex/pull/434)
+- Bump node from 12.20.1-buster to 14.16.0-buster [#435](https://github.com/sider/devon_rex/pull/435)
+
+## 2.40.6
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.40.5...2.40.6)
+
+- Update bundler requirement from 2.2.11 to 2.2.12 [#431](https://github.com/sider/devon_rex/pull/431)
+
+## 2.40.5
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.40.4...2.40.5)
 
 - Update bundler requirement from 2.2.10 to 2.2.11 [#428](https://github.com/sider/devon_rex/pull/428)
+- Bump python from 3.9.1-buster to 3.9.2-buster [#429](https://github.com/sider/devon_rex/pull/429)
 
 ## 2.40.4
 
