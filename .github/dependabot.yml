@@ -70,8 +70,8 @@ updates:
       timezone: Asia/Tokyo
     ignore:
       - dependency-name: node
-        # NOTE: Node 12 is the current LTS version. See <https://github.com/nodejs/Release#readme>.
-        versions: ["> 12"]
+        # NOTE: Node 14 is the current LTS version. See <https://github.com/nodejs/Release#readme>.
+        versions: ["> 14"]
   - package-ecosystem: docker
     directory: "/php"
     schedule:
