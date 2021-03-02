@@ -101,7 +101,7 @@ RUN cd "${RUNNER_USER_HOME}" && \
     mvn --version | grep "Apache Maven ${MAVEN_VERSION}"
 
 # Install Gradle
-ARG GRADLE_VERSION=6.8.1
+ARG GRADLE_VERSION=6.8.3
 ARG GRADLE_BINARY_FILE=gradle-${GRADLE_VERSION}-bin.zip
 ARG GRADLE_BINARY_URL=https://services.gradle.org/distributions/${GRADLE_BINARY_FILE}
 ARG GRADLE_HOME=${RUNNER_USER_HOME}/gradle
