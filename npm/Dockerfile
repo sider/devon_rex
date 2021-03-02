@@ -33,7 +33,7 @@ RUN cd /tmp/git-build && \
     make install DESTDIR=/opt/git
 
 
-FROM node:12.20.1-buster
+FROM node:14.16.0-buster
 
 ENV GLOBAL_RUBY_VERSION 2.7.2
 ENV LANG en_US.UTF-8
