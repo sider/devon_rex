@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 [Full diff](https://github.com/sider/devon_rex/compare/2.40.6...HEAD)
 
 - Bump gradle from 6.8.1 to 6.8.3 [#432](https://github.com/sider/devon_rex/pull/432)
+- Bump composer from 1.10.19 to 1.10.20 [#433](https://github.com/sider/devon_rex/pull/433)
 
 ## 2.40.6
 
