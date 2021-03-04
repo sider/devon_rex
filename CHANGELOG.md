@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - Bump git from 2.30.0 to 2.30.1 [#434](https://github.com/sider/devon_rex/pull/434)
 - Bump node from 12.20.1-buster to 14.16.0-buster [#435](https://github.com/sider/devon_rex/pull/435)
 - Bump golang from 1.15.8-buster to 1.16.0-buster [#427](https://github.com/sider/devon_rex/pull/427)
+- Update bundler requirement from 2.2.12 to 2.2.13 [#436](https://github.com/sider/devon_rex/pull/436)
 
 ## 2.40.6
 
