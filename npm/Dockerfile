@@ -83,10 +83,10 @@ RUN bundler_version=$(grep --word-regexp 'bundler' /tmp/devon_rex_work/Gemfile |
 
 
 USER root
-
 COPY npm/package.json /tmp/
 RUN npm_version=$(node -pe 'require("/tmp/package.json").dependencies.npm') && \
     npm install --global "npm@${npm_version}" && \
+    test "$(npm --version)" = "${npm_version}" && \
     rm /tmp/package.json
 
 USER root
@@ -96,4 +96,4 @@ RUN rm -rf /tmp/devon_rex_work
 USER $RUNNER_USER
 
 
-CMD node -v && npm -v && yarn -v
+CMD ["node", "--version"]
