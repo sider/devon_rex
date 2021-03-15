@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - Update bundler requirement from 2.2.12 to 2.2.14 [#436](https://github.com/sider/devon_rex/pull/436) [#439](https://github.com/sider/devon_rex/pull/439)
 - Bump npm from 6.14.11 to 7.6.3 [#430](https://github.com/sider/devon_rex/pull/430) [#437](https://github.com/sider/devon_rex/pull/437) [#452](https://github.com/sider/devon_rex/pull/452)
 - Bump dotnet/sdk from 3.1.406-buster to 3.1.407-buster [#449](https://github.com/sider/devon_rex/pull/449)
+- Bump debian from buster-20210208 to buster-20210311 [#451](https://github.com/sider/devon_rex/pull/451)
 
 ## 2.40.6
 
