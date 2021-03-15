@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - Bump golang from 1.15.8-buster to 1.16.0-buster [#427](https://github.com/sider/devon_rex/pull/427)
 - Update bundler requirement from 2.2.12 to 2.2.14 [#436](https://github.com/sider/devon_rex/pull/436) [#439](https://github.com/sider/devon_rex/pull/439)
 - Bump npm from 6.14.11 to 7.6.1 [#430](https://github.com/sider/devon_rex/pull/430) [#437](https://github.com/sider/devon_rex/pull/437)
+- Bump dotnet/sdk from 3.1.406-buster to 3.1.407-buster [#449](https://github.com/sider/devon_rex/pull/449)
 
 ## 2.40.6
 
