@@ -33,7 +33,7 @@ RUN cd /tmp/git-build && \
     make install DESTDIR=/opt/git
 
 
-FROM mcr.microsoft.com/dotnet/sdk:3.1.406-buster
+FROM mcr.microsoft.com/dotnet/sdk:3.1.407-buster
 
 ENV GLOBAL_RUBY_VERSION 2.7.2
 ENV LANG en_US.UTF-8
