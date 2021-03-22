@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.41.0...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.42.0...HEAD)
+
+## 2.42.0
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.41.0...2.42.0)
 
 - Update bundler requirement from 2.2.14 to 2.2.15 [#454](https://github.com/sider/devon_rex/pull/454)
 - Bump git from 2.30.2 to 2.31.0 [#455](https://github.com/sider/devon_rex/pull/455)
