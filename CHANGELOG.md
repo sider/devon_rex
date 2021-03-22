@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.41.0...HEAD)
 
+- Update bundler requirement from 2.2.14 to 2.2.15 [#454](https://github.com/sider/devon_rex/pull/454)
+
 ## 2.41.0
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.40.6...2.41.0)
