@@ -84,22 +84,6 @@ RUN bundler_version=$(grep --word-regexp 'bundler' /tmp/devon_rex_work/Gemfile |
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Install Maven
-ARG MAVEN_VERSION=3.6.3
-ARG MAVEN_BINARY_FILE=apache-maven-${MAVEN_VERSION}-bin.tar.gz
-ARG MAVEN_BINARY_URL=https://www.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/${MAVEN_BINARY_FILE}
-ARG MAVEN_HOME=${RUNNER_USER_HOME}/maven
-ENV PATH ${MAVEN_HOME}/bin:${PATH}
-RUN cd "${RUNNER_USER_HOME}" && \
-    curl -fsSLO --compressed "${MAVEN_BINARY_URL}" && \
-    curl -fsSL  --compressed "${MAVEN_BINARY_URL}.sha512" | \
-      xargs -I {} echo "{} *${MAVEN_BINARY_FILE}" | \
-      sha512sum --check --strict && \
-    mkdir -p "${MAVEN_HOME}" && \
-    tar -xzf "${MAVEN_BINARY_FILE}" -C "${MAVEN_HOME}" --strip-components 1 && \
-    rm "${MAVEN_BINARY_FILE}" && \
-    mvn --version | grep "Apache Maven ${MAVEN_VERSION}"
-
 # Install Gradle
 ARG GRADLE_VERSION=6.8.3
 ARG GRADLE_BINARY_FILE=gradle-${GRADLE_VERSION}-bin.zip
