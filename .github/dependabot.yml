@@ -80,8 +80,8 @@ updates:
       timezone: Asia/Tokyo
     ignore:
       - dependency-name: php
-        # NOTE: PHP 8.0 is a big release. See <https://www.php.net/releases/8.0/en.php>.
-        versions: ["> 8"]
+        # TODO: We now supports PHP 7 because PHP 8 is a big release (#387). See also <https://www.php.net/releases/8.0/en.php>.
+        versions: ["> 7"]
   - package-ecosystem: docker
     directory: "/python"
     schedule:
