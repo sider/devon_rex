@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.erb INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM debian:buster-20210311 AS git-builder
+FROM debian:buster-20210326 AS git-builder
 
 ARG GIT_VERSION=2.31.0
 ARG GIT_SOURCE_TARBALL=git-${GIT_VERSION}.tar.xz
