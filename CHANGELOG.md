@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 [Full diff](https://github.com/sider/devon_rex/compare/2.42.3...HEAD)
 
 - Bump debian from buster-20210311 to buster-20210329 [#466](https://github.com/sider/devon_rex/pull/466) [#478](https://github.com/sider/devon_rex/pull/478)
+- Bump npm from 7.7.5 to 7.7.6 [#479](https://github.com/sider/devon_rex/pull/479)
 
 ## 2.42.3
 
