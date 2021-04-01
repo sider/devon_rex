@@ -4,7 +4,7 @@
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 FROM debian:buster-20210329 AS git-builder
 
-ARG GIT_VERSION=2.31.0
+ARG GIT_VERSION=2.31.1
 ARG GIT_SOURCE_TARBALL=git-${GIT_VERSION}.tar.xz
 ARG GIT_SOURCE_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/${GIT_SOURCE_TARBALL}
 ARG GIT_SOURCE_SHA256_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/sha256sums.asc
@@ -52,7 +52,7 @@ RUN /tmp/devon_rex_work/prepare
 
 # Install Git and verify the specified version of Git is installed
 COPY --from=git-builder /opt/git /
-RUN test "$(git --version)" = "git version 2.31.0"
+RUN test "$(git --version)" = "git version 2.31.1"
 
 # Install Ruby
 COPY --from=ruby:2.7.2 /usr/local /usr/local/
