@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.42.4...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.42.5...HEAD)
+
+## 2.42.5
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.42.4...2.42.5)
 
 - Bump npm from 7.7.6 to 7.8.0 [#481](https://github.com/sider/devon_rex/pull/481)
 
