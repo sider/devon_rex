@@ -33,7 +33,7 @@ RUN cd /tmp/git-build && \
     make install DESTDIR=/opt/git
 
 
-FROM haskell:8.10.2-buster
+FROM haskell:9.0.1-buster
 
 ENV GLOBAL_RUBY_VERSION 2.7.2
 ENV LANG en_US.UTF-8
