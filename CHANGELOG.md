@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.42.5...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.42.6...HEAD)
+
+## 2.42.6
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.42.5...2.42.6)
 
 - Bump golang from 1.16.2-buster to 1.16.3-buster [#482](https://github.com/sider/devon_rex/pull/482)
 
