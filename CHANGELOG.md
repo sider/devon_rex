@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.42.6...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.42.7...HEAD)
+
+## 2.42.7
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.42.6...2.42.7)
 
 ## 2.42.6
 
