@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 [Full diff](https://github.com/sider/devon_rex/compare/2.42.7...HEAD)
 
 - Bump Ruby from 2.7.2 to 2.7.3 [#488](https://github.com/sider/devon_rex/pull/488)
+- Bump composer from 1.10.20 to 1.10.21 [#489](https://github.com/sider/devon_rex/pull/489)
 
 ## 2.42.7
 
