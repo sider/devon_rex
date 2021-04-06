@@ -18,7 +18,9 @@ BUILD_CONTEXTS = %w[
 ].freeze
 
 require 'aufgaben/release'
-Aufgaben::Release.new
+Aufgaben::Release.new do |t|
+  t.default_branch = 'master'
+end
 
 require 'aufgaben/bump/ruby'
 Aufgaben::Bump::Ruby.new
