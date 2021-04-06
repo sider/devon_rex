@@ -36,7 +36,7 @@ RUN cd /tmp/git-build && \
 # NOTE: Make sure the version of glibc is higher than the system that compiles Ruby.
 FROM swift:5.3-focal
 
-ENV GLOBAL_RUBY_VERSION 2.7.2
+ENV GLOBAL_RUBY_VERSION 2.7.3
 ENV LANG en_US.UTF-8
 ENV LANGUAGE $LANG
 ENV LC_ALL $LANG
@@ -55,7 +55,7 @@ COPY --from=git-builder /opt/git /
 RUN test "$(git --version)" = "git version 2.31.1"
 
 # Install Ruby
-COPY --from=ruby:2.7.2 /usr/local /usr/local/
+COPY --from=ruby:2.7.3 /usr/local /usr/local/
 
 # Change owner to let $RUNNER_USER add certificate files
 # WARNING: This must be done after copying ruby:2.7.2
