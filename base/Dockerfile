@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.erb INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM debian:buster-20210329 AS git-builder
+FROM debian:buster-20210408 AS git-builder
 
 ARG GIT_VERSION=2.31.1
 ARG GIT_SOURCE_TARBALL=git-${GIT_VERSION}.tar.xz
@@ -33,7 +33,7 @@ RUN cd /tmp/git-build && \
     make install DESTDIR=/opt/git
 
 
-FROM debian:buster-20210329
+FROM debian:buster-20210408
 
 ENV GLOBAL_RUBY_VERSION 2.7.3
 ENV LANG en_US.UTF-8
