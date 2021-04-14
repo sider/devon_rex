@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - Bump bundler from 2.2.15 to 2.2.16 [#503](https://github.com/sider/devon_rex/pull/503)
 - Bump npm from 7.8.0 to 7.9.0 [#501](https://github.com/sider/devon_rex/pull/501)
 - Bump debian from buster-20210329 to buster-20210408 [#495](https://github.com/sider/devon_rex/pull/495)
+- Bump python from 3.9.2-buster to 3.9.4-buster [#498](https://github.com/sider/devon_rex/pull/498)
 
 ## 2.42.8
 
