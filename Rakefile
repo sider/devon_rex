@@ -68,7 +68,6 @@ namespace :docker do
 
   desc 'Run docker push'
   task :push do
-    sh 'docker', 'login', '-u', docker_user, '-p', docker_password
     sh 'docker', 'push', image_name
     if tag_latest?
       sh 'docker', 'tag', image_name, image_name_latest
@@ -103,12 +102,4 @@ end
 
 def tag_latest?
   ENV['TAG_LATEST'] == 'true'
-end
-
-def docker_user
-  ENV.fetch('DOCKER_USER')
-end
-
-def docker_password
-  ENV.fetch('DOCKER_PASSWORD')
 end
