@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - Bump debian from buster-20210329 to buster-20210408 [#495](https://github.com/sider/devon_rex/pull/495)
 - Bump python from 3.9.2-buster to 3.9.4-buster [#498](https://github.com/sider/devon_rex/pull/498)
 - Bump dotnet/sdk from 3.1.407-buster to 3.1.408-buster [#504](https://github.com/sider/devon_rex/pull/504)
+- Install `file` command [#506](https://github.com/sider/devon_rex/pull/506)
 
 ## 2.42.8
 
