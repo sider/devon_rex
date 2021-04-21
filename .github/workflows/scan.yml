@@ -31,4 +31,4 @@ jobs:
       - uses: actions/checkout@v2
       - uses: Azure/container-scan@v0
         with:
-          image-name: devon_rex_${{ matrix.build-context }}:${{ github.event.inputs.image-tag }}
+          image-name: sider/devon_rex_${{ matrix.build-context }}:${{ github.event.inputs.image-tag }}
