@@ -6,6 +6,7 @@ required_packages=(
   autoconf
   build-essential
   curl
+  file
   gnupg
   libbz2-dev
   libcurl4-openssl-dev
@@ -18,6 +19,7 @@ required_packages=(
   libxml2-dev
   libxslt-dev
   libyaml-dev
+  locales
   openssh-client
   patchutils
   procps
@@ -27,7 +29,6 @@ required_packages=(
   unzip
   wget
   zlib1g-dev
-  locales
 )
 apt-get update -y
 apt-get install -qq -y --no-install-recommends ${required_packages[*]}
