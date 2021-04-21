@@ -63,4 +63,4 @@ EOF
 chown "${RUNNER_USER}:${RUNNER_GROUP}" "${RUNNER_USER_HOME}/.bashrc"
 
 # Create extra directories
-install --directory --owner="${RUNNER_USER}" --group="${RUNNER_GROUP}" "${RUNNER_USER_HOME}/bin"
+install --directory --owner="${RUNNER_USER}" --group="${RUNNER_GROUP}" "${RUNNER_USER_BIN}"
