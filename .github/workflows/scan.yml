@@ -30,5 +30,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: Azure/container-scan@v0
+        continue-on-error: true # TODO: Remove this
         with:
-          image-name: devon_rex_${{ matrix.build-context }}:${{ github.event.inputs.image-tag }}
+          image-name: sider/devon_rex_${{ matrix.build-context }}:${{ github.event.inputs.image-tag }}
