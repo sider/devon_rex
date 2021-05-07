@@ -90,8 +90,8 @@ RUN mv $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
 COPY php/sider.ini $PHP_INI_DIR/conf.d/sider.ini
 
 # Install composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.10.21 && \
-    composer --version | grep 'Composer version 1.10.21 '
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.10.22 && \
+    composer --version | grep 'Composer version 1.10.22 '
 
 ENV COMPOSER_HOME $RUNNER_USER_HOME/.composer
 ENV COMPOSER_VENDOR_BIN $COMPOSER_HOME/vendor/bin
