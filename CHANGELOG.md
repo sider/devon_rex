@@ -7,12 +7,13 @@ All notable changes to this project will be documented in this file.
 [Full diff](https://github.com/sider/devon_rex/compare/2.42.8...HEAD)
 
 - Bump bundler from 2.2.15 to 2.2.17 [#503](https://github.com/sider/devon_rex/pull/503) [#519](https://github.com/sider/devon_rex/pull/519)
-- Bump npm from 7.8.0 to 7.11.2 [#501](https://github.com/sider/devon_rex/pull/501) [#505](https://github.com/sider/devon_rex/pull/505) [#514](https://github.com/sider/devon_rex/pull/514) [#517](https://github.com/sider/devon_rex/pull/517)
+- Bump npm from 7.8.0 to 7.12.0 [#501](https://github.com/sider/devon_rex/pull/501) [#505](https://github.com/sider/devon_rex/pull/505) [#514](https://github.com/sider/devon_rex/pull/514) [#517](https://github.com/sider/devon_rex/pull/517) [#523](https://github.com/sider/devon_rex/pull/523)
 - Bump debian from buster-20210329 to buster-20210408 [#495](https://github.com/sider/devon_rex/pull/495)
 - Bump python from 3.9.2-buster to 3.9.5-buster [#498](https://github.com/sider/devon_rex/pull/498) [#522](https://github.com/sider/devon_rex/pull/522)
 - Bump dotnet/sdk from 3.1.407-buster to 3.1.408-buster [#504](https://github.com/sider/devon_rex/pull/504)
 - Bump pip from 21.0.1 to 21.1.1 [#515](https://github.com/sider/devon_rex/pull/515) [#518](https://github.com/sider/devon_rex/pull/518)
 - Bump composer from 1.10.21 to 1.10.22 [#520](https://github.com/sider/devon_rex/pull/520)
+- Bump golang from 1.16.3-buster to 1.16.4-buster [#521](https://github.com/sider/devon_rex/pull/521)
 - Install `file` command [#506](https://github.com/sider/devon_rex/pull/506)
 - Add `RUNNER_USER_BIN` environment variable [#508](https://github.com/sider/devon_rex/pull/508)
 
