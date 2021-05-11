@@ -86,7 +86,7 @@ RUN bundler_version=$(grep --word-regexp 'bundler' /tmp/devon_rex_work/Gemfile |
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install Gradle
-ARG GRADLE_VERSION=6.8.3
+ARG GRADLE_VERSION=6.9
 ARG GRADLE_BINARY_FILE=gradle-${GRADLE_VERSION}-bin.zip
 ARG GRADLE_BINARY_URL=https://services.gradle.org/distributions/${GRADLE_BINARY_FILE}
 ARG GRADLE_HOME=${RUNNER_USER_HOME}/gradle
