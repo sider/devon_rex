@@ -1,7 +1,7 @@
 <%= ERB.new(File.read('base/Dockerfile.git.erb')).result %>
 
 # NOTE: Make sure the version of glibc is higher than the system that compiles Ruby.
-FROM swift:5.3-focal
+FROM swift:5.4.0-focal
 
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
