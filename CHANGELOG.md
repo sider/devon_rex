@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.42.8...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.43.0...HEAD)
+
+## 2.43.0
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.42.8...2.43.0)
 
 - Bump bundler from 2.2.15 to 2.2.17 [#503](https://github.com/sider/devon_rex/pull/503) [#519](https://github.com/sider/devon_rex/pull/519)
 - Bump npm from 7.8.0 to 7.12.0 [#501](https://github.com/sider/devon_rex/pull/501) [#505](https://github.com/sider/devon_rex/pull/505) [#514](https://github.com/sider/devon_rex/pull/514) [#517](https://github.com/sider/devon_rex/pull/517) [#523](https://github.com/sider/devon_rex/pull/523)
