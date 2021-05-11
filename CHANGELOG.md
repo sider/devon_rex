@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - Bump composer from 1.10.21 to 1.10.22 [#520](https://github.com/sider/devon_rex/pull/520)
 - Bump golang from 1.16.3-buster to 1.16.4-buster [#521](https://github.com/sider/devon_rex/pull/521)
 - Bump node from 14.16.0-buster to 14.16.1-buster [#524](https://github.com/sider/devon_rex/pull/524)
+- Bump gradle from 6.8.3 to 6.9 [#525](https://github.com/sider/devon_rex/pull/525)
 - Install `file` command [#506](https://github.com/sider/devon_rex/pull/506)
 - Add `RUNNER_USER_BIN` environment variable [#508](https://github.com/sider/devon_rex/pull/508)
 
