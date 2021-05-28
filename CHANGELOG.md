@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - Bump bundler from 2.2.17 to 2.2.18 [#540](https://github.com/sider/devon_rex/pull/540)
 - Bump pip from 21.1.1 to 21.1.2 [#539](https://github.com/sider/devon_rex/pull/539)
+- Bump npm from 7.12.1 to 7.15.0 [#541](https://github.com/sider/devon_rex/pull/541)
 
 ## 2.43.1
 
