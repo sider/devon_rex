@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Bump pip from 21.1.1 to 21.1.2 [#539](https://github.com/sider/devon_rex/pull/539)
 - Bump npm from 7.12.1 to 7.15.0 [#541](https://github.com/sider/devon_rex/pull/541)
 - Bump debian from buster-20210408 to buster-20210511 [#532](https://github.com/sider/devon_rex/pull/532)
+- Bump dotnet/sdk from 3.1.408-buster to 3.1.409-buster [#533](https://github.com/sider/devon_rex/pull/533)
 
 ## 2.43.1
 
