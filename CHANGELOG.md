@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.43.1...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.43.2...HEAD)
+
+## 2.43.2
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.43.1...2.43.2)
 
 - Bump bundler from 2.2.17 to 2.2.18 [#540](https://github.com/sider/devon_rex/pull/540)
 - Bump pip from 21.1.1 to 21.1.2 [#539](https://github.com/sider/devon_rex/pull/539)
