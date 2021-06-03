@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.43.2...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.43.3...HEAD)
+
+## 2.43.3
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.43.2...2.43.3)
 
 - Bump pipenv from 2020.11.15 to 2021.5.29 [#543](https://github.com/sider/devon_rex/pull/543)
 - Bump bundler from 2.2.18 to 2.2.19 [#544](https://github.com/sider/devon_rex/pull/544)
