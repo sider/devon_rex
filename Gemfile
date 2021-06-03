@@ -1,11 +1,6 @@
-# frozen_string_literal: true
-
-source "https://rubygems.org"
-
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+source 'https://rubygems.org'
 
 gem 'aufgaben', github: 'ybiquitous/aufgaben', tag: '0.7.1'
+gem 'bundler', '2.2.19'
 gem 'dotenv'
 gem 'rake'
-
-gem 'bundler', '2.2.18'
