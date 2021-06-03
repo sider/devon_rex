@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/ybiquitous/aufgaben
+  remote: https://github.com/ybiquitous/aufgaben.git
   revision: da96337a89168a878ea85e0e8eed795af1deb982
   tag: 0.7.1
   specs:
@@ -16,9 +16,9 @@ PLATFORMS
 
 DEPENDENCIES
   aufgaben!
-  bundler (= 2.2.18)
+  bundler (= 2.2.19)
   dotenv
   rake
 
 BUNDLED WITH
-   2.2.18
+   2.2.19
