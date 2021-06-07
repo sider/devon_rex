@@ -86,19 +86,22 @@ RUN bundler_version=$(grep --word-regexp 'bundler' /tmp/devon_rex_work/Gemfile |
 USER root
 
 # PHP configuration
-RUN mv $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
-COPY php/sider.ini $PHP_INI_DIR/conf.d/sider.ini
+RUN mv ${PHP_INI_DIR}/php.ini-production ${PHP_INI_DIR}/php.ini
+COPY php/sider.ini ${PHP_INI_DIR}/conf.d/sider.ini
 
-# Install composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.10.22 && \
-    composer --version | grep 'Composer version 1.10.22 '
-
-ENV COMPOSER_HOME $RUNNER_USER_HOME/.composer
-ENV COMPOSER_VENDOR_BIN $COMPOSER_HOME/vendor/bin
-ENV PATH $COMPOSER_VENDOR_BIN:$PATH
+# Install Composer - https://getcomposer.org/download/
+ARG COMPOSER_VERSION=1.10.22
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
+    php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && \
+    php composer-setup.php --install-dir=/usr/local/bin --filename=composer --version="${COMPOSER_VERSION}" && \
+    php -r "unlink('composer-setup.php');" && \
+    composer --version | grep "Composer version ${COMPOSER_VERSION} "
+ENV COMPOSER_HOME ${RUNNER_USER_HOME}/.composer
+ENV COMPOSER_VENDOR_BIN ${COMPOSER_HOME}/vendor/bin
+ENV PATH ${COMPOSER_VENDOR_BIN}:$PATH
 
 USER $RUNNER_USER
-RUN mkdir -p $COMPOSER_VENDOR_BIN
+RUN mkdir -p "${COMPOSER_VENDOR_BIN}"
 
 USER root
 RUN rm -rf /tmp/devon_rex_work
@@ -107,4 +110,4 @@ RUN rm -rf /tmp/devon_rex_work
 USER $RUNNER_USER
 
 
-CMD php -v && composer --version
+CMD ["php", "--version"]
