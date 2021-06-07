@@ -35,7 +35,7 @@ $ bundle exec rake docker:build docker:run BUILD_CONTEXT=base
 ```
 
 We use ERB, which is a standard template engine of Ruby, to generate Dockerfiles.
-So, if you want to update the Dockerfiles, you need to do it via the `rake` command instead of editing the files directly.
+So, if you want to update Dockerfiles, you need to use the `rake` command instead of editing the files directly.
 
 For example:
 
