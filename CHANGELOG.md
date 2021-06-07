@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Bump golang from 1.16.4-buster to 1.16.5-buster [#545](https://github.com/sider/devon_rex/pull/545)
 - Bump git from 2.31.1 to 2.32.0 [#547](https://github.com/sider/devon_rex/pull/547)
 - Bump gradle from 6.9 to 7.0.2 [#548](https://github.com/sider/devon_rex/pull/548)
+- Improve Composer installation [#549](https://github.com/sider/devon_rex/pull/549)
 
 ## 2.43.3
 
