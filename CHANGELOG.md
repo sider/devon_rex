@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.44.0...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.44.1...HEAD)
+
+## 2.44.1
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.44.0...2.44.1)
 
 - Remove dotenv gem [#550](https://github.com/sider/devon_rex/pull/550)
 
