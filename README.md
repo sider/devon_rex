@@ -1,10 +1,10 @@
 [![Build](https://github.com/sider/devon_rex/workflows/Build/badge.svg)](https://github.com/sider/devon_rex/actions/workflows/build.yml?query=branch%3Amaster)
 
-# devon_rex
+# Devon Rex
 
-Docker images for [Sider Runners](https://github.com/sider/runners).
+This repository provides the Docker images for [Sider Runners](https://github.com/sider/runners).
 
-This repository's release tags indicate the Docker image tag, and all Docker images have the same tag.
+The release tags indicate the Docker image tag, and all Docker images have the same tag.
 
 * [devon_rex_base](https://hub.docker.com/r/sider/devon_rex_base)
 * [devon_rex_dotnet](https://hub.docker.com/r/sider/devon_rex_dotnet)
@@ -19,16 +19,36 @@ This repository's release tags indicate the Docker image tag, and all Docker ima
 
 ## Development
 
-This project depends on Ruby, so you have to install it and run `bundle install`.
+This project depends on Ruby with the same version in the [`.ruby-version`](.ruby-version) file.
+(we recommend [rbenv](https://github.com/rbenv/rbenv) to install Ruby)
 
-Every Docker image is written in `Dockerfile.erb` file.
-If you want to change a Docker image, update `Dockerfile.erb` file,
-and run `bundle exec rake dockerfile:generate` task.
-Don't forget to include the changes of `Dockerfile` ☺️
+To set up:
 
-By the way, why do we use ERB?
-Because we want to reuse the same Dockerfile instructions like `base/Dockerfile.prepare.erb`.
+```console
+$ bundle install
+```
 
-## Licensing
+To build and test a Docker image:
 
-The devon_rex repository is licensed under The MIT License. See [LICENSE](LICENSE) for the full license text.
+```console
+$ bundle exec rake docker:build docker:run BUILD_CONTEXT=base
+```
+
+We use ERB, which is a standard template engine of Ruby, to generate Dockerfiles.
+So, if you want to update the Dockerfiles, you need to do it via the `rake` command instead of editing the files directly.
+
+For example:
+
+```console
+$ bundle exec rake dockerfile:generate
+```
+
+To see all the defined tasks:
+
+```console
+$ bundle exec rake --tasks
+```
+
+## License
+
+See [LICENSE](LICENSE) for details.
