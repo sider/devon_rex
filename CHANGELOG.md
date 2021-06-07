@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.43.3...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.44.0...HEAD)
+
+## 2.44.0
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.43.3...2.44.0)
 
 - Bump npm from 7.15.0 to 7.16.0 [#546](https://github.com/sider/devon_rex/pull/546)
 - Bump golang from 1.16.4-buster to 1.16.5-buster [#545](https://github.com/sider/devon_rex/pull/545)
