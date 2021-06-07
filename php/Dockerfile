@@ -86,7 +86,7 @@ RUN bundler_version=$(grep --word-regexp 'bundler' /tmp/devon_rex_work/Gemfile |
 USER root
 
 # PHP configuration
-RUN mv ${PHP_INI_DIR}/php.ini-production ${PHP_INI_DIR}/php.ini
+RUN mv "${PHP_INI_DIR}/php.ini-production" "${PHP_INI_DIR}/php.ini"
 COPY php/sider.ini ${PHP_INI_DIR}/conf.d/sider.ini
 
 # Install Composer - https://getcomposer.org/download/

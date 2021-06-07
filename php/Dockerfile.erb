@@ -8,7 +8,7 @@ FROM php:7.4.16-buster
 USER root
 
 # PHP configuration
-RUN mv ${PHP_INI_DIR}/php.ini-production ${PHP_INI_DIR}/php.ini
+RUN mv "${PHP_INI_DIR}/php.ini-production" "${PHP_INI_DIR}/php.ini"
 COPY php/sider.ini ${PHP_INI_DIR}/conf.d/sider.ini
 
 # Install Composer - https://getcomposer.org/download/
