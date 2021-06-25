@@ -2,7 +2,7 @@ COPY base/bin/prepare /tmp/devon_rex_work/
 RUN /tmp/devon_rex_work/prepare
 
 # Install Git and verify the specified version of Git is installed
-COPY --from=git-builder /opt/git /
+COPY --from=git-builder /opt/git /usr/local/
 RUN test "$(git --version)" = "git version 2.32.0"
 
 # Install Ruby

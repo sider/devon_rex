@@ -10,13 +10,15 @@ ARG GIT_SOURCE_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/${GIT_SO
 ARG GIT_SOURCE_SHA256_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/sha256sums.asc
 ARG DEBIAN_FRONTEND=noninteractive
 
-# See https://git-scm.com/book/en/v2/Getting-Started-Installing-Git#_installing_from_source
+# See:
+# - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git#_installing_from_source
+# - https://github.com/git/git/blob/v2.32.0/INSTALL
+# - https://github.com/git/git/blob/v2.32.0/Makefile
 RUN apt-get update -y && \
     apt-get install -qq -y --no-install-recommends \
       dh-autoreconf \
       libcurl4-gnutls-dev \
       libexpat1-dev \
-      gettext \
       libz-dev \
       libssl-dev \
       curl \
@@ -26,11 +28,9 @@ RUN curl -fsSLO --compressed "${GIT_SOURCE_URL}" && \
     curl -fsSL --compressed "${GIT_SOURCE_SHA256_URL}" | \
       grep "${GIT_SOURCE_TARBALL}" | \
       sha256sum --check --strict && \
-    mkdir -p /tmp/git-build && tar -xf "${GIT_SOURCE_TARBALL}" -C /tmp/git-build --strip-components=1
-RUN cd /tmp/git-build && \
-    make configure && \
-    ./configure && \
-    make install DESTDIR=/opt/git
+    tar -xf "${GIT_SOURCE_TARBALL}" && \
+    cd "git-${GIT_VERSION}" && \
+    make prefix=/opt/git NO_TCLTK=1 NO_GETTEXT=1 install
 
 
 FROM php:7.4.16-buster
@@ -51,7 +51,7 @@ COPY base/bin/prepare /tmp/devon_rex_work/
 RUN /tmp/devon_rex_work/prepare
 
 # Install Git and verify the specified version of Git is installed
-COPY --from=git-builder /opt/git /
+COPY --from=git-builder /opt/git /usr/local/
 RUN test "$(git --version)" = "git version 2.32.0"
 
 # Install Ruby
