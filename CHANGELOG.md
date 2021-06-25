@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 - Bump npm from 7.17.0 to 7.19.0 [#559](https://github.com/sider/devon_rex/pull/559)
 - Optimize Git installation [#562](https://github.com/sider/devon_rex/pull/562)
 - Remove apt packages cache [#563](https://github.com/sider/devon_rex/pull/563)
+- Remove haskell image [#566](https://github.com/sider/devon_rex/pull/566)
 
 ## 2.44.2
 
