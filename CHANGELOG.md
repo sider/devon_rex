@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - Bump debian from buster-20210511 to buster-20210621 [#557](https://github.com/sider/devon_rex/pull/557)
 - Bump npm from 7.17.0 to 7.19.0 [#559](https://github.com/sider/devon_rex/pull/559)
 - Optimize Git installation [#562](https://github.com/sider/devon_rex/pull/562)
+- Remove apt packages cache [#563](https://github.com/sider/devon_rex/pull/563)
 
 ## 2.44.2
 
