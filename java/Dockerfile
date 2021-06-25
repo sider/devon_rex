@@ -33,7 +33,7 @@ RUN curl -fsSLO --compressed "${GIT_SOURCE_URL}" && \
     make prefix=/opt/git NO_TCLTK=1 NO_GETTEXT=1 install
 
 
-FROM openjdk:15.0.2-buster
+FROM openjdk:16.0.1-buster
 
 ENV GLOBAL_RUBY_VERSION 2.7.3
 ENV LANG en_US.UTF-8
