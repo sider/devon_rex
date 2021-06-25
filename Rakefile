@@ -7,7 +7,6 @@ BUILD_CONTEXTS = %w[
   base
   dotnet
   go
-  haskell
   java
   npm
   php

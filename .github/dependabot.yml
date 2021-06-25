@@ -52,12 +52,6 @@ updates:
       time: "09:00"
       timezone: Asia/Tokyo
   - package-ecosystem: docker
-    directory: "/haskell"
-    schedule:
-      interval: weekly
-      time: "09:00"
-      timezone: Asia/Tokyo
-  - package-ecosystem: docker
     directory: "/java"
     schedule:
       interval: weekly

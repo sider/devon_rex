@@ -9,7 +9,6 @@ The release tags indicate the Docker image tag, and all Docker images have the s
 * [devon_rex_base](https://hub.docker.com/r/sider/devon_rex_base)
 * [devon_rex_dotnet](https://hub.docker.com/r/sider/devon_rex_dotnet)
 * [devon_rex_go](https://hub.docker.com/r/sider/devon_rex_go)
-* [devon_rex_haskell](https://hub.docker.com/r/sider/devon_rex_haskell)
 * [devon_rex_java](https://hub.docker.com/r/sider/devon_rex_java)
 * [devon_rex_npm](https://hub.docker.com/r/sider/devon_rex_npm)
 * [devon_rex_php](https://hub.docker.com/r/sider/devon_rex_php)
