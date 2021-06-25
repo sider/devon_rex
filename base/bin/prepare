@@ -34,6 +34,7 @@ apt-get update -y
 apt-get install -qq -y --no-install-recommends ${required_packages[*]}
 apt-get -qyy autoremove
 apt-get -qyy clean
+rm -rf /var/lib/apt/lists/*
 
 # Configure locale
 sed -i -e "s/# ${LANGUAGE}/${LANGUAGE}/" /etc/locale.gen
