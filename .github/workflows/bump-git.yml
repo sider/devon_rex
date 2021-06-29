@@ -4,8 +4,6 @@ on:
   schedule:
     - cron: "0 0 * * 1"
   workflow_dispatch:
-  push:
-    branches: ["automate-bumping-git"]
 
 env:
   target_file: base/Dockerfile.git.erb
@@ -51,12 +49,12 @@ jobs:
         run: |
           sed -i -E 's/GIT_VERSION=.+$/GIT_VERSION=${{ steps.vars.outputs.latest_version }}/' '${{ env.target_file }}'
           bundle exec rake dockerfile:generate
-      # - uses: tibdex/github-app-token@v1
-      #   if: ${{ steps.vars.outputs.valid_version == 'true' }}
-      #   id: gh_token
-      #   with:
-      #     app_id: ${{ secrets.SIDER_INTERNAL_BOT_APP_ID }}
-      #     private_key: ${{ secrets.SIDER_INTERNAL_BOT_PRIVATE_KEY }}
+      - uses: tibdex/github-app-token@v1
+        if: ${{ steps.vars.outputs.valid_version == 'true' }}
+        id: gh_token
+        with:
+          app_id: ${{ secrets.SIDER_INTERNAL_BOT_APP_ID }}
+          private_key: ${{ secrets.SIDER_INTERNAL_BOT_PRIVATE_KEY }}
       - uses: peter-evans/create-pull-request@v3
         if: ${{ steps.vars.outputs.valid_version == 'true' }}
         with:
@@ -67,4 +65,4 @@ jobs:
             - https://github.com/git/git/compare/v${{ steps.vars.outputs.current_version }}...v${{ steps.vars.outputs.latest_version }}
           branch: bump-git
           labels: dependencies
-          # token: ${{ steps.gh_token.outputs.token }}
+          token: ${{ steps.gh_token.outputs.token }}
