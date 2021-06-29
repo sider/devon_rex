@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - Optimize Git installation [#562](https://github.com/sider/devon_rex/pull/562)
 - Remove apt packages cache [#563](https://github.com/sider/devon_rex/pull/563)
 - Remove haskell image [#566](https://github.com/sider/devon_rex/pull/566)
+- Bump pip from 21.1.2 to 21.1.3 [#568](https://github.com/sider/devon_rex/pull/568)
 
 ## 2.44.2
 
