@@ -40,7 +40,7 @@ jobs:
         run: |
           latest_version=$(echo '${{ fromJson(steps.latest_tag.outputs.data).repository.refs.edges[0].node.name }}' | sed -E 's/^v(.+)/\1/')
           echo ::set-output name=latest_version::${latest_version}
-          echo ::set-output name=current_version::$(grep -o -E 'GIT_VERSION=.+$' README.md | sed -E 's/GIT_VERSION=//')
+          echo ::set-output name=current_version::$(grep -o -E 'GIT_VERSION=.+$' '${{ env.target_file }}' | sed -E 's/GIT_VERSION=//')
           if [[ ${latest_version} =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             echo ::set-output name=valid_version::true
           else
