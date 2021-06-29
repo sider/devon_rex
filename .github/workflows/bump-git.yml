@@ -60,6 +60,7 @@ jobs:
       - uses: peter-evans/create-pull-request@v3
         if: ${{ steps.vars.outputs.valid_version == 'true' }}
         with:
+          commit-message: Bump git from ${{ steps.vars.outputs.current_version }} to ${{ steps.vars.outputs.latest_version }}
           title: Bump git from ${{ steps.vars.outputs.current_version }} to ${{ steps.vars.outputs.latest_version }}
           body: |
             - https://github.com/git/git/blob/v${{ steps.vars.outputs.latest_version }}/Documentation/RelNotes/${{ steps.vars.outputs.latest_version }}.txt
