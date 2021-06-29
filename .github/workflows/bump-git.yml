@@ -1,0 +1,68 @@
+name: Bump git
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+env:
+  target_file: base/Dockerfile.git.erb
+
+jobs:
+  bump-git:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - uses: octokit/graphql-action@v2.x
+        id: latest_tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          query: |
+            query {
+              repository(owner: "git", name: "git") {
+                refs(refPrefix: "refs/tags/", first: 1, orderBy: {field: TAG_COMMIT_DATE, direction: DESC}) {
+                  edges {
+                    node {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+      - name: Set variables
+        id: vars
+        run: |
+          latest_version=$(echo '${{ fromJson(steps.latest_tag.outputs.data).repository.refs.edges[0].node.name }}' | sed -E 's/^v(.+)/\1/')
+          echo ::set-output name=latest_version::${latest_version}
+          echo ::set-output name=current_version::$(grep -o -E 'GIT_VERSION=.+$' '${{ env.target_file }}' | sed -E 's/GIT_VERSION=//')
+          if [[ ${latest_version} =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo ::set-output name=valid_version::true
+          else
+            echo "Skip bumping to ${latest_version}"
+          fi
+      - name: Update file
+        if: ${{ steps.vars.outputs.valid_version == 'true' }}
+        run: |
+          sed -i -E 's/GIT_VERSION=.+$/GIT_VERSION=${{ steps.vars.outputs.latest_version }}/' '${{ env.target_file }}'
+          bundle exec rake dockerfile:generate
+      - uses: tibdex/github-app-token@v1
+        if: ${{ steps.vars.outputs.valid_version == 'true' }}
+        id: gh_token
+        with:
+          app_id: ${{ secrets.SIDER_INTERNAL_BOT_APP_ID }}
+          private_key: ${{ secrets.SIDER_INTERNAL_BOT_PRIVATE_KEY }}
+      - uses: peter-evans/create-pull-request@v3
+        if: ${{ steps.vars.outputs.valid_version == 'true' }}
+        with:
+          commit-message: Bump git from ${{ steps.vars.outputs.current_version }} to ${{ steps.vars.outputs.latest_version }}
+          title: Bump git from ${{ steps.vars.outputs.current_version }} to ${{ steps.vars.outputs.latest_version }}
+          body: |
+            - https://github.com/git/git/blob/v${{ steps.vars.outputs.latest_version }}/Documentation/RelNotes/${{ steps.vars.outputs.latest_version }}.txt
+            - https://github.com/git/git/compare/v${{ steps.vars.outputs.current_version }}...v${{ steps.vars.outputs.latest_version }}
+          branch: bump-git
+          labels: dependencies
+          token: ${{ steps.gh_token.outputs.token }}
