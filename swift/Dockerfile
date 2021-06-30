@@ -4,6 +4,7 @@
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 FROM debian:buster-20210621 AS git-builder
 
+ARG GIT_PREFIX=/opt/git
 ARG GIT_VERSION=2.32.0
 ARG GIT_SOURCE_TARBALL=git-${GIT_VERSION}.tar.xz
 ARG GIT_SOURCE_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/${GIT_SOURCE_TARBALL}
@@ -30,7 +31,9 @@ RUN curl -fsSLO --compressed "${GIT_SOURCE_URL}" && \
       sha256sum --check --strict && \
     tar -xf "${GIT_SOURCE_TARBALL}" && \
     cd "git-${GIT_VERSION}" && \
-    make prefix=/opt/git NO_TCLTK=1 NO_GETTEXT=1 install
+    make configure && \
+    ./configure --prefix="${GIT_PREFIX}" --without-tcltk && \
+    make "-j$(nproc)" NO_GETTEXT=1 install
 
 
 # NOTE: Make sure the version of glibc is higher than the system that compiles Ruby.
@@ -52,8 +55,11 @@ COPY base/bin/prepare /tmp/devon_rex_work/
 RUN /tmp/devon_rex_work/prepare
 
 # Install Git and verify the specified version of Git is installed
-COPY --from=git-builder /opt/git /usr/local/
-RUN test "$(git --version)" = "git version 2.32.0"
+COPY --from=git-builder /opt/git /opt/git
+ENV PATH /opt/git/bin:${PATH}
+RUN test "$(git --version)" = "git version 2.32.0" && \
+    git clone --quiet --depth=1 https://github.com/sider/devon_rex.git && \
+    rm -rf devon_rex
 
 # Install Ruby
 COPY --from=ruby:2.7.3 /usr/local /usr/local/
