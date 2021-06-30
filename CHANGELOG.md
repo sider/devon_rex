@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.45.0...HEAD)
 
+- Fix Git installation [#572](https://github.com/sider/devon_rex/pull/572)
+
 ## 2.45.0
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.44.2...2.45.0)
