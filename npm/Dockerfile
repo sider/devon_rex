@@ -4,6 +4,7 @@
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 FROM debian:buster-20210621 AS git-builder
 
+ARG GIT_PREFIX=/opt/git
 ARG GIT_VERSION=2.32.0
 ARG GIT_SOURCE_TARBALL=git-${GIT_VERSION}.tar.xz
 ARG GIT_SOURCE_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/${GIT_SOURCE_TARBALL}
@@ -31,9 +32,8 @@ RUN curl -fsSLO --compressed "${GIT_SOURCE_URL}" && \
     tar -xf "${GIT_SOURCE_TARBALL}" && \
     cd "git-${GIT_VERSION}" && \
     make configure && \
-    ./configure --prefix=/opt/git --without-tcltk && \
-    CPUS=$(grep -c ^processor /proc/cpuinfo) && \
-    make "-j${CPUS}" NO_GETTEXT=1 install
+    ./configure --prefix="${GIT_PREFIX}" --without-tcltk && \
+    make "-j$(nproc)" NO_GETTEXT=1 install
 
 
 FROM node:14.16.1-buster
