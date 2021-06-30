@@ -26,4 +26,7 @@ RUN curl -fsSLO --compressed "${GIT_SOURCE_URL}" && \
       sha256sum --check --strict && \
     tar -xf "${GIT_SOURCE_TARBALL}" && \
     cd "git-${GIT_VERSION}" && \
-    make prefix=/opt/git NO_TCLTK=1 NO_GETTEXT=1 install
+    make configure && \
+    ./configure --prefix=/opt/git --without-tcltk && \
+    CPUS=$(grep -c ^processor /proc/cpuinfo) && \
+    make "-j${CPUS}" NO_GETTEXT=1 install

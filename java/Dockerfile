@@ -30,7 +30,10 @@ RUN curl -fsSLO --compressed "${GIT_SOURCE_URL}" && \
       sha256sum --check --strict && \
     tar -xf "${GIT_SOURCE_TARBALL}" && \
     cd "git-${GIT_VERSION}" && \
-    make prefix=/opt/git NO_TCLTK=1 NO_GETTEXT=1 install
+    make configure && \
+    ./configure --prefix=/opt/git --without-tcltk && \
+    CPUS=$(grep -c ^processor /proc/cpuinfo) && \
+    make "-j${CPUS}" NO_GETTEXT=1 install
 
 
 FROM openjdk:15.0.2-buster
@@ -51,8 +54,11 @@ COPY base/bin/prepare /tmp/devon_rex_work/
 RUN /tmp/devon_rex_work/prepare
 
 # Install Git and verify the specified version of Git is installed
-COPY --from=git-builder /opt/git /usr/local/
-RUN test "$(git --version)" = "git version 2.32.0"
+COPY --from=git-builder /opt/git /opt/git
+ENV PATH /opt/git/bin:${PATH}
+RUN test "$(git --version)" = "git version 2.32.0" && \
+    git clone --quiet --depth=1 https://github.com/sider/devon_rex.git && \
+    rm -rf devon_rex
 
 # Install Ruby
 COPY --from=ruby:2.7.3 /usr/local /usr/local/
