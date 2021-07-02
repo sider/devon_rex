@@ -76,7 +76,7 @@ updates:
     ignore:
       - dependency-name: php
         # TODO: We now supports PHP 7 because PHP 8 is a big release (#387). See also <https://www.php.net/releases/8.0/en.php>.
-        versions: ["> 7"]
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: docker
     directory: "/python"
     schedule:
