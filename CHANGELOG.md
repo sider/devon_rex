@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.45.1...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.45.2...HEAD)
+
+## 2.45.2
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.45.1...2.45.2)
 
 - Bump npm from 7.19.0 to 7.19.1 [#577](https://github.com/sider/devon_rex/pull/577)
 - Bump python from 3.9.5-buster to 3.9.6-buster [#575](https://github.com/sider/devon_rex/pull/575)
