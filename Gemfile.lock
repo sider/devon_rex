@@ -1,13 +1,7 @@
-GIT
-  remote: https://github.com/ybiquitous/aufgaben.git
-  revision: da96337a89168a878ea85e0e8eed795af1deb982
-  tag: 0.7.1
-  specs:
-    aufgaben (0.7.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
+    aufgaben (0.8.2)
     cgi (0.2.0)
     erb (2.2.3)
       cgi
@@ -17,7 +11,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aufgaben!
+  aufgaben
   bundler (= 2.2.21)
   erb
   rake
