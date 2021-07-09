@@ -7,4 +7,4 @@ FROM swift:5.3-focal
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.cleanup.erb')).result %>
 
-CMD swift -version
+CMD ["swift", "-version"]

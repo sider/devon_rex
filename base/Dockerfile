@@ -95,4 +95,4 @@ RUN rm -rf /tmp/devon_rex_work
 USER $RUNNER_USER
 
 
-CMD ruby -v && gem -v && bundle -v
+CMD ["ruby", "--version"]
