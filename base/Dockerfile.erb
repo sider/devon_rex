@@ -6,4 +6,4 @@ FROM debian:buster-20210621
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.cleanup.erb')).result %>
 
-CMD ruby -v && gem -v && bundle -v
+CMD ["ruby", "--version"]

@@ -96,4 +96,4 @@ RUN rm -rf /tmp/devon_rex_work
 USER $RUNNER_USER
 
 
-CMD swift -version
+CMD ["swift", "-version"]
