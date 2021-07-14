@@ -7,7 +7,8 @@ All notable changes to this project will be documented in this file.
 [Full diff](https://github.com/sider/devon_rex/compare/2.45.2...HEAD)
 
 - Bump bundler from 2.2.21 to 2.2.23 [#582](https://github.com/sider/devon_rex/pull/582) [#586](https://github.com/sider/devon_rex/pull/586)
-- Bump Ruby from 2.7.3 to 2.7.4 [#584](https://github.com/sider/devon_rex/pull/584)
+- Bump ruby from 2.7.3 to 2.7.4 [#584](https://github.com/sider/devon_rex/pull/584)
+- Bump node from 14.17.1-buster to 14.17.3-buster [#585](https://github.com/sider/devon_rex/pull/585)
 
 ## 2.45.2
 
