@@ -5,12 +5,11 @@ on:
     - cron: "0 0 * * 1"
   workflow_dispatch:
 
-env:
-  target_file: base/Dockerfile.git.erb
-
 jobs:
   bump-git:
     runs-on: ubuntu-latest
+    env:
+      target_file: base/Dockerfile.git.erb
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
