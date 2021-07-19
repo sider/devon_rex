@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - Bump bundler from 2.2.23 to 2.2.24 [#590](https://github.com/sider/devon_rex/pull/590)
 - Bump npm from 7.19.1 to 7.20.0 [#589](https://github.com/sider/devon_rex/pull/589)
 - Bump golang from 1.16.5-buster to 1.16.6-buster [#587](https://github.com/sider/devon_rex/pull/587)
+- Bump dotnet/sdk from 3.1.410-buster to 3.1.411-buster [#588](https://github.com/sider/devon_rex/pull/588)
 
 ## 2.45.3
 
