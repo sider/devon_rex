@@ -27,7 +27,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update file
         run: |
-          sed -E "s/'bundler', '[0-9.]+'/'bundler', '${{ steps.latest_version.outputs.value }}'/" Gemfile
+          sed -E "s/'${{ steps.current_version.outputs.value }}'/'${{ steps.latest_version.outputs.value }}'/" Gemfile
           bundle install
       - uses: tibdex/github-app-token@v1
         id: gh_token
