@@ -36,7 +36,7 @@ RUN curl -fsSLO --compressed "${GIT_SOURCE_URL}" && \
     make "-j$(nproc)" NO_GETTEXT=1 install
 
 
-FROM mcr.microsoft.com/dotnet/sdk:3.1.410-buster
+FROM mcr.microsoft.com/dotnet/sdk:3.1.411-buster
 
 ENV GLOBAL_RUBY_VERSION 2.7.4
 ENV LANG en_US.UTF-8
