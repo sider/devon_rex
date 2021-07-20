@@ -5,7 +5,7 @@ GEM
     cgi (0.2.0)
     erb (2.2.3)
       cgi
-    rake (13.0.3)
+    rake (13.0.6)
 
 PLATFORMS
   ruby
