@@ -39,8 +39,6 @@ jobs:
       - name: Print variables
         run: echo tag=${{ steps.define_vars.outputs.tag }}
       - uses: docker/setup-buildx-action@v1
-        with:
-          install: true # `docker build` is an alias to `docker buildx`
       - name: Build and test the Docker image
         run: |
           bundle exec rake dockerfile:generate dockerfile:verify
