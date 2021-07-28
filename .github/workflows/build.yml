@@ -40,9 +40,6 @@ jobs:
           elif [[ $GITHUB_REF == refs/heads/* ]]; then
             tag="${GITHUB_REF/refs\/heads\//}"
             echo "TAG=${tag}" >> $GITHUB_ENV
-          else
-            tag="PR_${{ github.event.pull_request.number }}"
-            echo "TAG=${tag}" >> $GITHUB_ENV
           fi
           # Debug
           echo "GITHUB_REF: ${GITHUB_REF}"
@@ -55,11 +52,9 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - run: bundle exec rake dockerfile:generate dockerfile:verify
       - run: bundle exec rake docker:build
-        env:
-          BUILD_CACHE: true
       - run: bundle exec rake docker:run
       - run: bundle exec rake docker:run'[sudo update-ca-certificates]'
       - run: bundle exec rake docker:run'[sudo apt-get clean]'
       - run: bundle exec rake docker:run'[echo file > /usr/local/share/ca-certificates/file.crt]'
-      - run: echo bundle exec rake docker:push # TODO: remove `echo`
-        if: ${{ !startsWith(env.TAG, 'PR_') }}
+      - run: bundle exec rake docker:push
+        if: ${{ github.event_name == 'push' }}

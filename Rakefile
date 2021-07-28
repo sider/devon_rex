@@ -53,14 +53,9 @@ end
 namespace :docker do
   desc 'Run docker build'
   task :build, [:options] => 'dockerfile:generate' do |_task, args|
-    options = ["--tag=#{image_name}", "--file=#{build_context}/Dockerfile"]
+    options = ["--file", "#{build_context}/Dockerfile", "--tag", image_name]
+    options << "--tag" << image_name_latest if tag_latest?
     options += (args[:options] || '').split(/\s+/)
-
-    if ENV["BUILD_CACHE"] == "true"
-      options << "--cache-from" << image_name_latest
-      options << "--build-arg" << "BUILDKIT_INLINE_CACHE=1"
-    end
-
     sh 'docker', 'build', *options, '.'
   end
 
@@ -73,10 +68,7 @@ namespace :docker do
   desc 'Run docker push'
   task :push do
     sh 'docker', 'push', image_name
-    if tag_latest?
-      sh 'docker', 'tag', image_name, image_name_latest
-      sh 'docker', 'push', image_name_latest
-    end
+    sh 'docker', 'push', image_name_latest if tag_latest?
   end
 
   desc 'Run interactive shell in the specified Docker container'
@@ -87,12 +79,12 @@ namespace :docker do
   end
 end
 
-def image_name
+def image_name(tag_name = tag)
   "sider/devon_rex_#{build_context}:#{tag}"
 end
 
 def image_name_latest
-  "sider/devon_rex_#{build_context}:latest"
+  image_name "latest"
 end
 
 def build_context
