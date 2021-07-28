@@ -32,31 +32,29 @@ jobs:
           bundler-cache: true
       - name: Define variables
         run: |
-          # See https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
-          tag="${GITHUB_REF#refs/*/}"
-          tag="${tag///}"
-          echo "TAG=${tag}" >> $GITHUB_ENV
           if [[ $GITHUB_REF == refs/tags/* ]]; then
+            tag="${GITHUB_REF/refs\/tags\//}"
             tag_latest=true
+            echo "TAG=${tag}" >> $GITHUB_ENV
             echo "TAG_LATEST=${tag_latest}" >> $GITHUB_ENV
+          elif [[ $GITHUB_REF == refs/heads/* ]]; then
+            tag="${GITHUB_REF/refs\/heads\//}"
+            echo "TAG=${tag}" >> $GITHUB_ENV
           fi
           # Debug
           echo "GITHUB_REF: ${GITHUB_REF}"
           echo "TAG: ${tag}"
           echo "TAG_LATEST: ${tag_latest}"
       - uses: docker/setup-buildx-action@v1
+      - uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       - run: bundle exec rake dockerfile:generate dockerfile:verify
       - run: bundle exec rake docker:build
       - run: bundle exec rake docker:run
       - run: bundle exec rake docker:run'[sudo update-ca-certificates]'
       - run: bundle exec rake docker:run'[sudo apt-get clean]'
       - run: bundle exec rake docker:run'[echo file > /usr/local/share/ca-certificates/file.crt]'
-      - name: Login to Docker Hub
-        if: ${{ env.TAG == 'master' || env.TAG_LATEST == 'true' }}
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Publish the Docker image
-        if: ${{ env.TAG == 'master' || env.TAG_LATEST == 'true' }}
-        run: bundle exec rake docker:push
+      - run: echo bundle exec rake docker:push # TODO: remove `echo`
+        if: ${{ env.TAG }}

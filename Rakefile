@@ -94,8 +94,7 @@ def build_context
 end
 
 def tag
-  key = 'TAG'
-  ENV.fetch(key).tap { |value| abort "Environment variable `#{key}` must not be empty." if value.empty? }
+  ENV['TAG'] || 'dev'
 end
 
 def tag_latest?
