@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file.
 
 ## 2.45.5
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.45.4...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.45.4...2.45.5)
 
 ## 2.45.4
 
