@@ -57,7 +57,7 @@ namespace :docker do
     options += (args[:options] || '').split(/\s+/)
 
     if ENV["BUILD_CACHE"] == "true"
-      options << "--cache-from" << image_name
+      options << "--cache-from" << image_name_latest
       options << "--build-arg" << "BUILDKIT_INLINE_CACHE=1"
     end
 
