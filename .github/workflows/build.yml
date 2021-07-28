@@ -56,5 +56,5 @@ jobs:
       - run: bundle exec rake docker:run'[sudo update-ca-certificates]'
       - run: bundle exec rake docker:run'[sudo apt-get clean]'
       - run: bundle exec rake docker:run'[echo file > /usr/local/share/ca-certificates/file.crt]'
-      - run: echo bundle exec rake docker:push # TODO: remove `echo`
+      - run: bundle exec rake docker:push
         if: ${{ env.TAG }}
