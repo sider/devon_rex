@@ -55,6 +55,12 @@ namespace :docker do
   task :build, [:options] => 'dockerfile:generate' do |_task, args|
     options = ["--tag=#{image_name}", "--file=#{build_context}/Dockerfile"]
     options += (args[:options] || '').split(/\s+/)
+
+    if ENV["BUILD_CACHE"] == "true"
+      options << "--cache-from" << image_name
+      options << "--build-arg" << "BUILDKIT_INLINE_CACHE=1"
+    end
+
     sh 'docker', 'build', *options, '.'
   end
 

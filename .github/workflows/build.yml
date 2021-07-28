@@ -55,6 +55,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - run: bundle exec rake dockerfile:generate dockerfile:verify
       - run: bundle exec rake docker:build
+        env:
+          BUILD_CACHE: true
       - run: bundle exec rake docker:run
       - run: bundle exec rake docker:run'[sudo update-ca-certificates]'
       - run: bundle exec rake docker:run'[sudo apt-get clean]'
