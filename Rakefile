@@ -90,7 +90,9 @@ def image_name_latest
 end
 
 def build_context
-  ENV.fetch('BUILD_CONTEXT')
+  ENV.fetch('BUILD_CONTEXT').tap do |context|
+    abort "Unknown context: #{context.inspect}" unless BUILD_CONTEXTS.include?(context)
+  end
 end
 
 def tag
