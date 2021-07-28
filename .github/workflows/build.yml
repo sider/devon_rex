@@ -31,13 +31,19 @@ jobs:
         with:
           bundler-cache: true
       - name: Define variables
-        # See https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
         run: |
-          echo "GITHUB_REF: ${GITHUB_REF}"
+          # See https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
           tag="${GITHUB_REF#refs/*/}"
           tag="${tag///}"
           echo "TAG=${tag}" >> $GITHUB_ENV
-          echo "TAG_LATEST=${{ startsWith(env.GITHUB_REF, 'refs/tags/') }}" >> $GITHUB_ENV
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            tag_latest=true
+            echo "TAG_LATEST=${tag_latest}" >> $GITHUB_ENV
+          fi
+          # Debug
+          echo "GITHUB_REF: ${GITHUB_REF}"
+          echo "TAG: ${tag}"
+          echo "TAG_LATEST: ${tag_latest}"
       - uses: docker/setup-buildx-action@v1
       - run: bundle exec rake dockerfile:generate dockerfile:verify
       - run: bundle exec rake docker:build
