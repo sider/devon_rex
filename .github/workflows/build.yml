@@ -23,42 +23,34 @@ jobs:
           - python
           - ruby
           - swift
+    env:
+      BUILD_CONTEXT: ${{ matrix.build-context }}
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
       - name: Define variables
-        id: define_vars
         # See https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
         run: |
           echo "GITHUB_REF: ${GITHUB_REF}"
           tag="${GITHUB_REF#refs/*/}"
           tag="${tag///}"
-          echo "::set-output name=tag::${tag}"
-      - name: Print variables
-        run: echo tag=${{ steps.define_vars.outputs.tag }}
+          echo "TAG=${tag}" >> $GITHUB_ENV
+          echo "TAG_LATEST=${{ startsWith(env.GITHUB_REF, 'refs/tags/') }}" >> $GITHUB_ENV
       - uses: docker/setup-buildx-action@v1
-      - name: Build and test the Docker image
-        run: |
-          bundle exec rake dockerfile:generate dockerfile:verify
-          bundle exec rake docker:build docker:run
-          bundle exec rake docker:run'[sudo update-ca-certificates]'
-          bundle exec rake docker:run'[sudo apt-get clean]'
-          bundle exec rake docker:run'[echo file > /usr/local/share/ca-certificates/file.crt]'
-        env:
-          BUILD_CONTEXT: ${{ matrix.build-context }}
-          TAG: ${{ steps.define_vars.outputs.tag }}
+      - run: bundle exec rake dockerfile:generate dockerfile:verify
+      - run: bundle exec rake docker:build
+      - run: bundle exec rake docker:run
+      - run: bundle exec rake docker:run'[sudo update-ca-certificates]'
+      - run: bundle exec rake docker:run'[sudo apt-get clean]'
+      - run: bundle exec rake docker:run'[echo file > /usr/local/share/ca-certificates/file.crt]'
       - name: Login to Docker Hub
-        if: ${{ steps.define_vars.outputs.tag == 'master' || startsWith(github.ref, 'refs/tags/') }}
+        if: ${{ env.TAG == 'master' || env.TAG_LATEST == 'true' }}
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Publish the Docker image
-        if: ${{ steps.define_vars.outputs.tag == 'master' || startsWith(github.ref, 'refs/tags/') }}
+        if: ${{ env.TAG == 'master' || env.TAG_LATEST == 'true' }}
         run: bundle exec rake docker:push
-        env:
-          BUILD_CONTEXT: ${{ matrix.build-context }}
-          TAG: ${{ steps.define_vars.outputs.tag }}
-          TAG_LATEST: ${{ startsWith(github.ref, 'refs/tags/') }}
