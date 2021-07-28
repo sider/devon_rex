@@ -53,8 +53,14 @@ end
 namespace :docker do
   desc 'Run docker build'
   task :build, [:options] => 'dockerfile:generate' do |_task, args|
-    options = ["--tag", image_name, "--file", dockerfile]
+    options = ["--tag=#{image_name}", "--file=#{build_context}/Dockerfile"]
     options += (args[:options] || '').split(/\s+/)
+
+    if ENV["BUILD_CACHE"] == "true"
+      options << "--cache-from" << image_name_latest
+      options << "--build-arg" << "BUILDKIT_INLINE_CACHE=1"
+    end
+
     sh 'docker', 'build', *options, '.'
   end
 
@@ -79,16 +85,6 @@ namespace :docker do
     workdir = "/work"
     sh 'docker', 'run', '-it', '--rm', "--volume=#{Dir.pwd}:#{workdir}", "--workdir=#{workdir}", *run_args, image_name, 'bash'
   end
-
-  desc 'Show Docker image name'
-  task :image_name do
-    puts image_name
-  end
-
-  desc 'Show Dockerfile path'
-  task :file do
-    puts dockerfile
-  end
 end
 
 def image_name
@@ -103,10 +99,6 @@ def build_context
   ENV.fetch('BUILD_CONTEXT').tap do |context|
     abort "Unknown context: #{context.inspect}" unless BUILD_CONTEXTS.include?(context)
   end
-end
-
-def dockerfile
-  "#{build_context}/Dockerfile"
 end
 
 def tag
