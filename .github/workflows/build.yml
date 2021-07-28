@@ -28,8 +28,6 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: Show Docker information
-        run: docker info
       - name: Define variables
         id: define_vars
         # See https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
@@ -40,6 +38,9 @@ jobs:
           echo "::set-output name=tag::${tag}"
       - name: Print variables
         run: echo tag=${{ steps.define_vars.outputs.tag }}
+      - uses: docker/setup-buildx-action@v1
+        with:
+          install: true # `docker build` is an alias to `docker buildx`
       - name: Build and test the Docker image
         run: |
           bundle exec rake dockerfile:generate dockerfile:verify
