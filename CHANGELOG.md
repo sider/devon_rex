@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.45.6...HEAD)
 
+- Fix publishing Docker images [#610](https://github.com/sider/devon_rex/pull/610)
+
 ## 2.45.6
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.45.5...2.45.6)
