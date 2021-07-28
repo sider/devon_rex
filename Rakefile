@@ -80,7 +80,7 @@ namespace :docker do
 end
 
 def image_name(tag_name = tag)
-  "sider/devon_rex_#{build_context}:#{tag}"
+  "sider/devon_rex_#{build_context}:#{tag_name}"
 end
 
 def image_name_latest
