@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.45.7...HEAD)
 
+- Refactor build action [#611](https://github.com/sider/devon_rex/pull/611)
+
 ## 2.45.7
 
 [Full diff](https://github.com/sider/devon_rex/compare/2.45.6...2.45.7)
