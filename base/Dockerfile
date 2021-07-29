@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.erb INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM debian:buster-20210621 AS git-builder
+FROM debian:buster-20210721 AS git-builder
 
 ARG GIT_PREFIX=/opt/git
 ARG GIT_VERSION=2.32.0
@@ -36,7 +36,7 @@ RUN curl -fsSLO --compressed "${GIT_SOURCE_URL}" && \
     make "-j$(nproc)" NO_GETTEXT=1 install
 
 
-FROM debian:buster-20210621
+FROM debian:buster-20210721
 
 ENV GLOBAL_RUBY_VERSION 2.7.4
 ENV LANG en_US.UTF-8
