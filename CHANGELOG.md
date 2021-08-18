@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - Change Ruby Docker image to Ruby buster [#623](https://github.com/sider/devon_rex/pull/623)
 - Bump bundler from 2.2.24 to 2.2.26 [#623](https://github.com/sider/devon_rex/pull/623)
+- Bump debian from buster-20210621 to buster-20210816 [#630](https://github.com/sider/devon_rex/pull/630)
 
 ## 2.45.8
 
