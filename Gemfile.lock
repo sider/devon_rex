@@ -12,9 +12,9 @@ PLATFORMS
 
 DEPENDENCIES
   aufgaben
-  bundler (= 2.2.24)
+  bundler (= 2.2.26)
   erb
   rake
 
 BUNDLED WITH
-   2.2.24
+   2.2.26
