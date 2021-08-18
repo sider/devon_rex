@@ -62,7 +62,7 @@ RUN test "$(git --version)" = "git version 2.32.0" && \
     rm -rf devon_rex
 
 # Install Ruby
-COPY --from=ruby:2.7.4 /usr/local /usr/local/
+COPY --from=ruby:2.7.4-buster /usr/local /usr/local/
 
 # Change owner to let $RUNNER_USER add certificate files
 # WARNING: This must be done after copying ruby:2.7.2
