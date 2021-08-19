@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - Bump dotnet/sdk from 3.1.411-buster to 3.1.412-buster [#619](https://github.com/sider/devon_rex/pull/619)
 - Bump npm from 7.20.0 to 7.20.6 [#620](https://github.com/sider/devon_rex/pull/620)
 - Bump node from 14.17.3-buster to 14.17.5-buster [#621](https://github.com/sider/devon_rex/pull/621)
+- Bump pip from 21.1.3 to 21.2.4 [#622](https://github.com/sider/devon_rex/pull/622)
 
 ## 2.45.8
 
