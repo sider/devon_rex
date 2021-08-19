@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Bump bundler from 2.2.24 to 2.2.26 [#623](https://github.com/sider/devon_rex/pull/623)
 - Bump debian from buster-20210621 to buster-20210816 [#630](https://github.com/sider/devon_rex/pull/630)
 - Bump php from 7.4.21-buster to 7.4.22-buster [#612](https://github.com/sider/devon_rex/pull/612)
+- Bump dotnet/sdk from 3.1.411-buster to 3.1.412-buster [#619](https://github.com/sider/devon_rex/pull/619)
 
 ## 2.45.8
 
