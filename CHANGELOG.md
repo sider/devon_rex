@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 - Bump php from 7.4.21-buster to 7.4.22-buster [#612](https://github.com/sider/devon_rex/pull/612)
 - Bump dotnet/sdk from 3.1.411-buster to 3.1.412-buster [#619](https://github.com/sider/devon_rex/pull/619)
 - Bump npm from 7.20.0 to 7.20.6 [#620](https://github.com/sider/devon_rex/pull/620)
+- Bump node from 14.17.3-buster to 14.17.5-buster [#621](https://github.com/sider/devon_rex/pull/621)
 
 ## 2.45.8
 
