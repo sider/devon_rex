@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[Full diff](https://github.com/sider/devon_rex/compare/2.45.8...HEAD)
+[Full diff](https://github.com/sider/devon_rex/compare/2.45.9...HEAD)
+
+## 2.45.9
+
+[Full diff](https://github.com/sider/devon_rex/compare/2.45.8...2.45.9)
 
 - Change Ruby Docker image to Ruby buster [#623](https://github.com/sider/devon_rex/pull/623)
 - Bump bundler from 2.2.24 to 2.2.26 [#623](https://github.com/sider/devon_rex/pull/623)
