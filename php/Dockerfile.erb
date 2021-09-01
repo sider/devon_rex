@@ -1,6 +1,6 @@
 <%= ERB.new(File.read('base/Dockerfile.git.erb')).result %>
 
-FROM php:7.4.22-buster
+FROM php:7.4.23-buster
 
 <%= ERB.new(File.read('base/Dockerfile.env.erb')).result %>
 <%= ERB.new(File.read('base/Dockerfile.prepare.erb')).result %>
