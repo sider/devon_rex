@@ -5,7 +5,7 @@
 FROM debian:buster-20210816 AS git-builder
 
 ARG GIT_PREFIX=/opt/git
-ARG GIT_VERSION=2.32.0
+ARG GIT_VERSION=2.33.0
 ARG GIT_SOURCE_TARBALL=git-${GIT_VERSION}.tar.xz
 ARG GIT_SOURCE_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/${GIT_SOURCE_TARBALL}
 ARG GIT_SOURCE_SHA256_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/sha256sums.asc
