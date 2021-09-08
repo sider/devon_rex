@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    aufgaben (0.8.3)
+    aufgaben (0.8.5)
     cgi (0.2.0)
     erb (2.2.3)
       cgi
