@@ -5,7 +5,7 @@
 FROM debian:buster-20210816 AS git-builder
 
 ARG GIT_PREFIX=/opt/git
-ARG GIT_VERSION=2.32.0
+ARG GIT_VERSION=2.33.0
 ARG GIT_SOURCE_TARBALL=git-${GIT_VERSION}.tar.xz
 ARG GIT_SOURCE_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/${GIT_SOURCE_TARBALL}
 ARG GIT_SOURCE_SHA256_URL=https://mirrors.edge.kernel.org/pub/software/scm/git/sha256sums.asc
@@ -13,8 +13,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # See:
 # - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git#_installing_from_source
-# - https://github.com/git/git/blob/v2.32.0/INSTALL
-# - https://github.com/git/git/blob/v2.32.0/Makefile
+# - https://github.com/git/git/blob/v2.33.0/INSTALL
+# - https://github.com/git/git/blob/v2.33.0/Makefile
 RUN apt-get update -y && \
     apt-get install -qq -y --no-install-recommends \
       dh-autoreconf \
@@ -57,7 +57,7 @@ RUN /tmp/devon_rex_work/prepare
 # Install Git and verify the specified version of Git is installed
 COPY --from=git-builder /opt/git /opt/git
 ENV PATH /opt/git/bin:${PATH}
-RUN test "$(git --version)" = "git version 2.32.0" && \
+RUN test "$(git --version)" = "git version 2.33.0" && \
     git clone --quiet --depth=1 https://github.com/sider/devon_rex.git && \
     rm -rf devon_rex
 
