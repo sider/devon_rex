@@ -13,8 +13,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # See:
 # - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git#_installing_from_source
-# - https://github.com/git/git/blob/v2.32.0/INSTALL
-# - https://github.com/git/git/blob/v2.32.0/Makefile
+# - https://github.com/git/git/blob/v2.33.0/INSTALL
+# - https://github.com/git/git/blob/v2.33.0/Makefile
 RUN apt-get update -y && \
     apt-get install -qq -y --no-install-recommends \
       dh-autoreconf \
@@ -56,7 +56,7 @@ RUN /tmp/devon_rex_work/prepare
 # Install Git and verify the specified version of Git is installed
 COPY --from=git-builder /opt/git /opt/git
 ENV PATH /opt/git/bin:${PATH}
-RUN test "$(git --version)" = "git version 2.32.0" && \
+RUN test "$(git --version)" = "git version 2.33.0" && \
     git clone --quiet --depth=1 https://github.com/sider/devon_rex.git && \
     rm -rf devon_rex
 
