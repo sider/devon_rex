@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.erb INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM debian:buster-20210816 AS git-builder
+FROM debian:buster-20210902 AS git-builder
 
 ARG GIT_PREFIX=/opt/git
 ARG GIT_VERSION=2.33.0
