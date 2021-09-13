@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 [Full diff](https://github.com/sider/devon_rex/compare/2.45.10...HEAD)
 
 - Bump bundler from 2.2.26 to 2.2.27 [#653](https://github.com/sider/devon_rex/pull/653)
+- Bump debian from buster-20210816 to buster-20210902 [#643](https://github.com/sider/devon_rex/pull/643)
 - Bump git from 2.32.0 to 2.33.0 [#635](https://github.com/sider/devon_rex/pull/635)
 
 ## 2.45.10
