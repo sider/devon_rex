@@ -22,6 +22,15 @@ rules:
       * See details on [devon_rex/issues#564](https://github.com/sider/devon_rex/issues/564)
     justification:
       - When ktlint supports Java 16.
+  - id: sider.devon_rex.update_changelog_on_npm
+    pattern:
+      regexp: |-
+        "npm": "(.*)"
+    glob: "npm/package.json"
+    message: |
+      Update CHANGELOG.md when you change the npm version.
+    justification:
+      - When CHANGELOG.md is updated already.
 
 
 import:
