@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Bump debian from buster-20210816 to buster-20210902 [#643](https://github.com/sider/devon_rex/pull/643)
 - Bump git from 2.32.0 to 2.33.0 [#635](https://github.com/sider/devon_rex/pull/635)
 - Bump python from 3.9.6-buster to 3.9.7-buster [#645](https://github.com/sider/devon_rex/pull/645)
+- Bump node from 14.17.5-buster to 14.17.6-buster [#649](https://github.com/sider/devon_rex/pull/649)
 
 ## 2.45.10
 
