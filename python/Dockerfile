@@ -36,7 +36,7 @@ RUN curl -fsSLO --compressed "${GIT_SOURCE_URL}" && \
     make "-j$(nproc)" NO_GETTEXT=1 install
 
 
-FROM python:3.9.6-buster
+FROM python:3.9.7-buster
 
 ENV GLOBAL_RUBY_VERSION 2.7.4
 ENV LANG en_US.UTF-8
