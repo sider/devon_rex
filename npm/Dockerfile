@@ -36,7 +36,7 @@ RUN curl -fsSLO --compressed "${GIT_SOURCE_URL}" && \
     make "-j$(nproc)" NO_GETTEXT=1 install
 
 
-FROM node:14.17.5-buster
+FROM node:14.17.6-buster
 
 ENV GLOBAL_RUBY_VERSION 2.7.4
 ENV LANG en_US.UTF-8
