@@ -37,7 +37,7 @@ RUN curl -fsSLO --compressed "${GIT_SOURCE_URL}" && \
 
 
 # NOTE: Make sure the version of glibc is higher than the system that compiles Ruby.
-FROM swift:5.3-focal
+FROM swift:5.4.3-focal
 
 ENV GLOBAL_RUBY_VERSION 2.7.4
 ENV LANG en_US.UTF-8
