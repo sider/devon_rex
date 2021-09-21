@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - Bump bundler from 2.2.26 to 2.2.27 [#653](https://github.com/sider/devon_rex/pull/653)
 - Bump debian from buster-20210816 to buster-20210902 [#643](https://github.com/sider/devon_rex/pull/643)
+- Bump dotnet/sdk from 3.1.412-buster to 3.1.413-buster [#659](https://github.com/sider/devon_rex/pull/659)
 - Bump git from 2.32.0 to 2.33.0 [#635](https://github.com/sider/devon_rex/pull/635)
 - Bump golang from 1.17.0-buster to 1.17.1-buster [#655](https://github.com/sider/devon_rex/pull/655)
 - Bump python from 3.9.6-buster to 3.9.7-buster [#645](https://github.com/sider/devon_rex/pull/645)
